@@ -1,0 +1,117 @@
+
+
+/* structure.css */
+
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul {
+    list-style: none;
+}
+
+#container {
+    margin:0 auto;
+    width: 1200px;
+    background-color: #fff;
+}
+
+/* 헤더영역 - 타이틀, 내비게이션(메뉴) */
+header{
+    width:100%;
+    height: 100px;
+    background-color: #045;
+}
+
+nav{
+    float:right;
+    width:900px;
+    height:100px;
+    padding-top:40px;
+}
+
+#topmenu {
+    height:60px;
+}
+
+#topment > li {
+    float:left;
+    position:relative;
+}
+
+
+
+/* main(본문) 영역 */
+.contents {
+    width:100px;
+    margin:50px auto;
+}
+
+main > section {
+    margin: top 60px;
+}
+
+main h2 {
+    font-size: 1.5em;
+    line-height: 2.5;
+}
+
+main div {
+    margin: top 20px;
+}
+
+main h3 {
+    font-size:1.2em;
+    line-height: 2.2;
+}
+
+.detail p {
+    line-height:2.0;
+    color:#222;
+}
+
+.schedule h4 {
+    font-size:1.2 em;
+}
+
+.schedule ul {
+    list-style: none;
+}
+
+.schedule ul li {
+    line-height: 2;
+}
+
+
+/* footer 영역 - 메뉴(홈페이지 관련) */
+footer{
+    width:1200px;
+    height:100px;
+    border-top:2px solid #222;
+}
+
+#bottomMenu{
+    width:100%;
+    height:20px;
+    margin-left: 60px;
+}
+
+#bottomMenu ul {
+    margin-top:15px;
+}
+
+#bottomMenu ul lik {
+    float:left;
+    padding:5px 20px;
+    border-right:1px solid #ddd;
+}
+
+#bottomMenu ul li:last-child{
+    border:none;
+}
+
+#bottomMenu ul li a, #bottomMenu ul li a:visited {
+    font-size:15px;
+    color:#666;
+}
