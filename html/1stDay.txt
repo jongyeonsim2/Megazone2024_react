@@ -67,7 +67,6 @@
        - footer
        - atricle, aside, div 등
 
-infj
 
 4. form 태그
    4.1 back end 와 연동이 되어서 서버와 통신을 하게 됨.
