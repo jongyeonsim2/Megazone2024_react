@@ -12,6 +12,12 @@
     </style>
 </head>
 <body>
+    <!-- 이미지 태그 : img 
+       alt : 인터넷이 불안정한 경우 이미지 파일 경로를
+         잘못 넣었을때 처럼 이미지를 제대로 표시할 수 없는 경우
+         이미지 대신 지정된 텍스트가 출력됨. 
+    -->
+    <img src="images/tangerines.jpg" alt="레드향">
     <h2>상품 구성</h2>
     <table>
         <caption>선물용 및 가정용 상품 구성</caption>
@@ -53,9 +59,53 @@
      -->
     <table>
         <caption>선물용 및 가정용 상품 구성</caption>
+        <!-- 특정 열에 스타일 속성 지정하기 -->
+        <colgroup>
+            <col style="background-color: #eee;">
+            <col>
+            <col style="width: 100px;">
+            <col style="width: 180px;">
+        </colgroup>
         <thead>
-            
+            <tr>
+                <th>용도</th>
+                <th>중량</th>
+                <th>갯수</th>
+                <th>가격</th>
+            </tr>
         </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">선물용</td>
+                <td>3Kg</td>
+                <td>11~16과</td>
+                <td>35,000원</td>
+            </tr>
+            <tr>
+                <td>5Kg</td>
+                <td>18~26과</td>
+                <td>55,000원</td>
+            </tr>
+            <tr>
+                <td rowspan="2">가정용</td>
+                <td>3Kg</td>
+                <td>11~16과</td>
+                <td>30,000원</td>
+            </tr>
+            <tr>
+                <td>5Kg</td>
+                <td>18~26과</td>
+                <td>50,000원</td>
+            </tr>
+        </tbody>
     </table>
+
+    <!-- 이미지 속성(width) 지정하기 -->
+    <p>원본 사이즈 이미지</p>
+    <img src="images/salad.jpg" alt="레드향">
+    <p>width="50%" height="50%" 사이즈 이미지</p>
+    <img src="images/salad.jpg" alt="레드향" width="50%">
+    <p>width="150" 사이즈 이미지</p>
+    <img src="images/salad.jpg" alt="레드향" width="150">
 </body>
 </html>
