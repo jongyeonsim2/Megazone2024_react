@@ -1,15 +1,17 @@
-#container {
+/* 외부 스타일 쉬트 */
+
+#container { /* id 선택자 */
   width:600px;
   margin:10px auto;
 }
-fieldset {
+fieldset { /* 타입 선택자 */
   margin-bottom: 20px;
 }
-ul {
+ul { /* 타입 선택자 */
   list-style: none;
   padding-left: 0;
 }
-ul li {
+ul li { /* 타입 선택자 */
   margin:10px;
 }
 
