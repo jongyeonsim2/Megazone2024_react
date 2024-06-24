@@ -1,0 +1,32 @@
+<!-- rgba.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <title>Document</title>
+  <style>
+   body {
+    background: url('images/bg.jpg') no-repeat fixed;
+    background-size: cover; /* 이미지를 화면 크기에 맞게 공백없이 설정 */
+    text-align: center;
+   }
+   h1 {
+    font-size: 160px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+   }
+   .color1 {
+    color:rgb(255, 255, 255);/* 흰 색 rbg(red, blue, green) */
+   }
+   .color2 {
+    color: rgba(255, 255, 255, 0.4); /* 반투명 흰색
+                        red, green, blue : 색상의 양을 설정. ( 0 ~ 255 )
+                        불투명도 범위 : 0(투명) ~ 1(불투명)
+    */
+   }
+  </style>
+</head>
+<body>
+   <h1 class="color1">HTML</h1>
+   <h1 class="color2">CSS</h1>
+</body>
+</html>
