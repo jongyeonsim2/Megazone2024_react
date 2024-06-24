@@ -1,0 +1,57 @@
+<!-- web_google_font.html -->
+<!-- 사용자 컴퓨터에 설치된 폰트를 사용.
+    설치된 폰트가 없다면...
+    웹 폰트를 사용하게 되면, 다운로드 받게끔해서, 폰트를 사용하게 함.
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <title>Document</title>
+   <style>
+
+    /* 웹 폰트 */
+
+    @font-face {
+        font-family: 'Ostrich'; /* 사용할 폰트 이름 정의 */
+        src: local('Ostrich Sans'), /* 사용자 시스템에 해당 글꼴이 있는지 확인. */
+                url('fonts/ostrich-sans-bold.woff') format('woff'), /* 없으면, 다운로드 */
+                url('fonts/ostrich-sans-bold.ttf') format('truetype'),
+                url('fonts/ostrich-sans-bold.svg') format('svg');
+    }
+
+    .wfont{ /* 클래스 스타일 */
+        font-family: 'Ostrich';
+    }
+
+    p {
+        font-size: 30px;
+    }
+
+
+    /* 구글 폰트 : https://fonts.google.com/ */
+
+    @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
+    h1 {
+        font-size: 60px;
+        font-weight: bold;
+        font-family: "Nanum Pen Script", cursive;
+    }
+
+    h2 {
+        font-size: 60px;
+        font-weight: bold;
+        font-family: 굴림;
+    }
+
+   </style>
+</head>
+<body>
+   <p>Using Default Fonts</p>
+   <p class="wfont">Using Default Fonts</p>
+
+   <h1>HTML+CSS+JavaScript</h1>
+   <h2>HTML+CSS+JavaScript</h2>
+</body>
+</html>
