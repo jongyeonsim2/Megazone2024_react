@@ -4,6 +4,35 @@
 	<meta charset="UTF-8">
 	<title>quiz 2</title>
 	<style>
+        #container { /* 모든 컨텐츠를 감싸는 역할 */
+            width: 640px;
+            margin:0 auto;
+            /* 
+                margin 속성 값은 1개, 2개, 3개, 4개의 값으로 지정가능.
+                - 1개의 값은 모든 네 면의 여백을 설정.
+                - 2개의 값은 첫 번째 값은 위와 아래의 여백을 설정하고,
+                  두 번째 값은 왼쪽과 오른쪽의 여백을 설정.
+                - 3개의 값은 첫 번째 값은 위의 여백을 설정하고,
+                  두 번째 값은 왼쫀과 오른쪽의 여백을 설정하고,
+                  세 번째 값은 아래 쪽의 여백을 설정.
+                - 4개의 값은 상, 우, 하, 좌(시계방향 순) 순으로 여백을 설정.
+
+                auto 는 브라우저가 적절한 여백 크기를 알아서 선택하게 끔 함.
+                중앙정렬하고 싶을 때 사용하면 됨.
+            */
+            padding: 5px;
+        }
+        #check { /* 확인하세요 의 모든 text 를 감싸는 역할 */
+            width: 640px;
+            border: 1px solid gray;
+        }
+        h1 {
+            color: white;
+            font-size: 1em; /* 글자 크기, 16px => 브라어저의 기본 폰트 사이즈 16px 임. */
+            background: black;
+            margin: 0;
+            padding: 10px;
+        }
 	</style>
 </head>
 
