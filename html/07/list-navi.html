@@ -1,0 +1,40 @@
+<!-- list-navi.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <title>리스트를 사용해 세로 메뉴 만들기</title>
+  <style>
+   /* 링크 밑줄 없애기 */
+   a {
+    text-decoration: none;
+   }
+   /* 화면 왼쪽의 메뉴 형태로 하기 위해 폭 조정 */
+   nav {
+    width: 300px;
+    margin: 50px 30px; /* 외부 상하 여백 : 50px, 외부 좌우 여백 : 30px */
+   }
+   /* 리스트의 점을 없앰. 메뉴처럼 보이도록 함. */
+   ul {
+    list-style: none;
+   }
+   /* 배너 형태의 메뉴가 되도록 해야 함. */
+   li {
+    border: 1px solid #222;
+    padding: 20px;
+    margin: 5px;
+   }
+  </style>
+</head>
+<body>
+   <h1>도서관 소개</h1>
+   <nav>
+        <ul>
+            <li><a href="#">도서관 시설</a></li>
+            <li><a href="#">도서관 정보</a></li>
+            <li><a href="#">도서관 자료</a></li>
+            <li><a href="#">도서관 위치</a></li>
+        </ul>
+   </nav>
+</body>
+</html>
