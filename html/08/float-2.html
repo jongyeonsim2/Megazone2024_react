@@ -23,25 +23,37 @@
 
    #box1 {
     /*  
-        위치 기준은?
-        margin 은 왜 중첩이 안되는지?
-        margin 은 왜 중첩이 되는지?
-        floating  의 간격은?
+        body 기준으로 왼쪽에서 부터 자리를 잡게 됨.
+        body 의 margin이 중첩이 되지 않도록 faloating 됨.
     */
     background: yellowgreen;
     float: left;
    }
 
    #box2 {
+    /*
+        box1을 기준으로 margin 을 유지하면서, floating 됨.
+    */
     background: blueviolet;
     float: left;
    }
 
    #box3 {
+    /*
+        block level 요소임.
+        floating 된 box1, box2와의 위치 관계는 없음.
+        body 를 기준으로 왼쪽의 margin(body, box3) 은 유지하게 되고,
+        top 쪽의 margin은 중첩되게 위치함.
+        ( => block level 요소가 세로로 위치하는 경우 마진 중첩이 발생. )
+    */
     background: greenyellow;
    }
 
    #box4 {
+    /*
+      box2, box3 의 마진과 중첩이 되지 않도록 margin을 유지하면서, floating 됨.
+    
+    */
     background: skyblue;
     float: left;
    }
