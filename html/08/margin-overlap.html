@@ -1,0 +1,42 @@
+<!-- margin-ovelap.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <title>Document</title>
+  <style>
+   div {
+    width: 200px;
+    height: 100px;
+    margin:30px ;
+   }
+   /* 마진 중첩(마진 상쇄)
+
+    박스모델에서 요소를 세로로 배치할 경우,
+    각 요소의 마진과 마진이 서로 만나면, 마진값이 큰 쪽으로 겹치게 됨.
+   
+    그래서, 요소간의 마진 차이로 들쭉날쭉한 형태로 표시됨.
+   
+   */
+   #box1 {
+    /* box2의 마진이 더 크기 때문에, box1 의 마진이 box2의 마진에 
+       겹쳐서 보이게 됨. */
+    background: blue;
+   }
+   #box2 {
+    background: red;
+    margin: 40px;
+   }
+   #box3 {
+    background: greenyellow;
+    margin:50px;
+   }
+  </style>
+</head>
+<body>
+   <div id="box1"></div>
+   <div id="box2"></div>
+   <div id="box3"></div>
+</body>
+</html>
+

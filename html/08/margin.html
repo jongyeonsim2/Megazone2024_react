@@ -1,0 +1,50 @@
+<!-- margin.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <title>박스모델 - 마진</title>
+  <style>
+   div {
+    width: 200px;
+    height: 100px;
+    border: 1px solid black;
+    display: inline-block;
+   }
+
+   #margin1 {
+    /* 상하좌우 마진 적용. */
+    margin: 50px;
+   }
+
+   #margin2 {
+    /* top, bottom vs left, right */
+    margin: 30px 50px;
+   }
+
+   #margin3 {
+    /* top vs    left, right    vs bottom */
+    margin: 30px 20px 50px;
+    }
+
+    #margin4 {
+    /* top vs right vs bottom vs left */
+    margin: 30px 40px 50px 60px;
+    }
+
+    #margin5 {
+    /* right */
+        margin-right: 20px;
+    }
+
+  </style>
+</head>
+<body>
+   <div id="margin1"></div>
+   <div id="margin2"></div>
+   <div id="margin3"></div>
+   <div id="margin4"></div>
+   <div id="margin5"></div>
+</body>
+</html>
+
