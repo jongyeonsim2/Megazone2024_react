@@ -1,0 +1,30 @@
+<!-- border-3.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <title>박스모델</title>
+  <style>
+   /* 타입 스타일 */
+    div {
+        width: 200px;
+        height: 150px;
+    }
+   /* id 스타일 */
+   #round1 {
+    border: 2px solid violet;
+
+    /* 꼭지점에 대해서 부분적으로 라운딩 처리 */
+    /* 1. 왼쪽 위 모서리 */
+    border-top-left-radius: 20px;
+
+    /* 2. 오른쪽 위 모서리 */
+    border-top-right-radius: 20px;
+   }
+  </style>
+</head>
+<body>
+   <div id="round1"></div>
+</body>
+</html>
+
