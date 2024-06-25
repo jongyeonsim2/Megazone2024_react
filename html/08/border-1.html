@@ -8,7 +8,14 @@
    div {
     width: 200px;
     height: 100px;
+
+    /* inline-block 
+      inline 속성 + block 속성
+      block level 요소에도 inline level 요소처럼
+      왼쪽에 다른 요소가 위치하게 됨.
+    */
     display: inline-block;
+
     margin: 15px;
     text-align: center;
     font-size: 20px;
@@ -21,6 +28,9 @@
   </style>
 </head>
 <body>
+   <!-- block level model : div 기준으로 왼쪽, 오른쪽으로 다른 요소가 오지 못하는 특징.  
+       브라우저에서 실제 표시된 결과는 inline level 요소처럼 표시가 되고 있음. 
+   -->
    <div id="box1">실선 테두리</div>
    <div id="box2">점선 테두리</div>
    <div id="box3">점선 테두리</div>

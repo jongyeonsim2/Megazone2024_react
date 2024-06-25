@@ -1,0 +1,52 @@
+<!-- border-2.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <title>박스모델</title>
+  <style>
+    /* border 에 색상 지정 */
+    /* 타입 스타일 */
+    div {
+        /* block level 요소의 가장 기본 속성 */
+        width: 200px;
+        height: 100px;
+
+        /* inline level 요소처럼 사용하고 싶은 경우 */
+        display: inline-block;
+
+        margin: 15px;
+        border-style: dashed; /* 테두리 스타일 : 선으로 된 점선 */
+        border-width: 2px;
+    }
+
+    /* id 스타일 */
+    /* 4면의 이름 : top, right, bottom, left ( 시계방향 ) */
+    #box1 {
+        /* 4면에 색상 적용 */
+        border-color: red;
+    }
+
+    #box2 {
+        /* 부분적으로 면에 색상 적용 : border-방향지정-color */  
+        border-top-color: blue;      
+        border-left-color: red;
+    }
+
+
+
+
+    /* padding( 컨텐츠와 border 사이의 여백 ) 설정,
+       border 속성을 제어해서 타이틀을 이쁘게 꾸미도록 설정( 텍스트 밑에 밑줄 긋기 ). */
+
+  </style>
+</head>
+<body>
+   <div id="box1"></div>
+   <div id="box2"></div>
+
+   <h1>박스 모델</h1>
+   <p>박스 모델은 실제 콘텐츠 영역, 박스와 콘텐츠 영역 사이의 여백인 패딩(padding), 박스의 테두리(border), 그리고 여러 박스 모델 간의 여백인 마진(margin) 등의 요소로 구성이 됩니다.</p>
+</body>
+</html>
+
