@@ -4,7 +4,44 @@
 		<meta charset="UTF-8">
 		<title>quiz 3</title>
 		<style>
-			
+			/*
+				1. 순서 없는 리스트의 항목 배치
+				   현재는 위에서 밑으로 배치 => 왼쪽에서 오른쪽으로 배치 ( float )
+				2. a tag 에 마우스 동작에 따른 설정
+				   의사클래스를 사용해서 스타일 적용.
+
+				   의사클래스(가상클래스)
+				   a:link - 방문 전 링크 상태
+				   a:visited - 방문 후 링크 상태
+				   a:hover - 마우스를 오버 했을 때 링크 상태
+				   a:active - 클릭했을 때 링크 상태
+				   */
+
+			/* todo 1 */
+			ul {
+				list-style: none;
+			}
+
+			ul li {
+				float: left;
+			}
+
+			a {
+				padding: 10px 20px;
+				background-color: #ccc;
+			}
+
+			/* todo 2 */
+			a:link, a:visited {
+				color:black; /* text color */
+				text-decoration: none;
+			}
+
+			a:hover {
+				background-color: #000;
+				color: #fff; /* text color */
+			}
+
 		</style>
 	</head>
 	<body>
