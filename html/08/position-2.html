@@ -10,6 +10,9 @@
 
         static : 웹 문서의 요소가 추가되는 흐름에 맞추어 배치됨.
                 
+                현재 문서의 요소는 모두 P 태그임.
+                따라서, block level 요소임으로 
+                순서대로 위에서 아래로 배치됨.
 
         relative : 위치값을 지정할 수 있다는 것을 제외하고는
                 static 와 동일함.
@@ -22,12 +25,41 @@
    
    */
 
+   p {
+    width: 500px;
+    height: 200px;
+    background-color: #eee;
+    border:1px solid #ccc;
+    line-height: 2;
+   }
 
+    #static {
+        position: static;
+    }
 
+    #relative-1 {
+        position: relative;
+    }
+
+    #relative-2 {
+        position: relative;
+        left:100px; /* 왼쪽에서 100px 만큼 떨어지게 */
+        top:-50px; /* 위로 50px 만큼 이동 */
+    }
+
+    #fixed {
+        width: 100px;
+        height: 100px;
+        background-color: yellowgreen;
+        position: fixed;
+        right: 30px; /* 브라우저 기준으로 오른쪽에서 30px 떨어지게 */
+        top:30px; /* 브라우저 기준으로 위에서 30px 만큼 떨어지게 */
+    }
   </style>
 </head>
 <body>
     <p id="static"><b>static</b> Ex et adipisicing voluptate aliqua cupidatat nulla. Laboris est sint sit aliqua enim. Aute Lorem eu sint aute sunt proident. Do culpa consectetur elit duis laboris reprehenderit incididunt nulla. Pariatur fugiat voluptate ea non amet cupidatat. </p>
+    <!-- block level 두 번째 요소로 static 아래에 위치함. -->
     <p id="relative-1"><b>relative-1</b> Lorem ipsum reprehenderit adipisicing exercitation enim velit veniam incididunt sit consectetur elit exercitation. Magna Lorem excepteur occaecat cupidatat sunt proident tempor do nostrud labore cillum non exercitation voluptate. </p>
     <p id="relative-2"><b>relative-2</b> Excepteur voluptate ad irure ipsum duis. Deserunt cupidatat commodo proident eu mollit cillum commodo quis quis et ad. Velit id duis enim reprehenderit eu dolor Lorem excepteur excepteur. </p>
     <p id="fixed"><b>fixed</b></p>
