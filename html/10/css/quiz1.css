@@ -34,19 +34,56 @@ body {
 /* 2. form 스타일 */
 #signup {
     background:#fff;
+    border:1px solid #222;
+    border-radius: 5px;
+    width: 400px;
+    padding: 20px;
+    margin: 20px auto;
 }
 
 /* 3. form fieldset 스타일 */
-
+#signup fieldset {
+    border:1px solid#ccc;
+    margin-bottom: 30px;
+}
 
 /* 4. form legent 스타일  */
-
+#signup legend {
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 5px;
+    padding-bottom: 10px;
+}
 
 /* 5. form ul li 스타일, label 스타일 */
+#signup ul li {
+    line-height: 30px;
+    list-style: none;
+    padding: 5px 10x; /* 상하 5px 좌우 10px */
+    margin-bottom: 2px;
+}
 
+#signup label{
+    /* 순서없는 리스트의 각 항목 구서은
+       label, input 의 두 요소로 구성됨.
 
+       따라서, 왼쪽으로 시작해서 위치시키면서,
+       label 의 width를 설정. 
+       => 자동적으로 input 의 위치가 결정이 되어 버림.
+    */
+    float: left;
+    font-size: 13px;
+    width: 110px;
+}
 
 
 /* 6. form button 스타일 */
-
+#signup button {
+    border: 1px solid #222;
+    border-radius: 20px;
+    display: block;
+    font-size: 16px;
+    margin: auto;
+    padding: 7px 25px;
+}
 
