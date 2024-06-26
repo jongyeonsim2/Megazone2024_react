@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+}
+
+#contents {
+    background: url(../images/bg.jpg) no-repeat;
+    /* 이미지를 요소 크기(800px,500px)에 맞게 여백 없이 설정. */
+    background-size: cover;
+    width: 800px;
+    height: 500px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #fff;
+    font-size: 120px;
+}
