@@ -1,0 +1,52 @@
+/*
+      1. 구성요소
+         form : 1개
+         fieldset : 3개
+         legend : 2개
+         button : 1개
+         label, input : 각각 7개 => 정렬
+
+      2. 하위 선택자 ( CSS 적용 정보 )
+         form fieldset
+         form label => label 7개에 대한 공통 스타일 적용
+
+      3. label, input 에 대한 위치 및 정렬 ( CSS 적용 정보 )
+         순서 없는 리스트의 항목
+
+         하나의 항목 : label 1개, input 1개
+
+      4. button ( CSS 적용 정보 )
+         block level 요소.
+
+*/
+
+/* 0. 브라우저 초기화 */
+* {
+    margin:0;
+    padding:0;
+}
+
+/* 1. 웹페이지 바탕색 설정 */
+body {
+    background: #ccc;
+}
+
+/* 2. form 스타일 */
+#signup {
+    background:#fff;
+}
+
+/* 3. form fieldset 스타일 */
+
+
+/* 4. form legent 스타일  */
+
+
+/* 5. form ul li 스타일, label 스타일 */
+
+
+
+
+/* 6. form button 스타일 */
+
+

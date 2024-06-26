@@ -1,0 +1,84 @@
+<!-- quiz1.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <title>Document</title>
+   <!-- 연결 선택자 - 하위 선택자 -->
+
+   <!-- 화면 요소의 구성 요소
+      1. 구성요소
+         form : 1개
+         fieldset : 3개
+         legend : 2개
+         button : 1개
+         label, input : 각각 7개 => 정렬
+
+      2. 하위 선택자 ( CSS 적용 정보 )
+         form fieldset
+         form label => label 7개에 대한 공통 스타일 적용
+
+      3. label, input 에 대한 위치 및 정렬 ( CSS 적용 정보 )
+         순서 없는 리스트의 항목
+
+         하나의 항목 : label 1개, input 1개
+
+      4. button ( CSS 적용 정보 )
+         block level 요소.
+
+
+   -->
+  <link rel="stylesheet" href="css/quiz1.css">
+</head>
+<body>
+   <form id="signup">
+        <!-- 로그인 정보 -->
+        <fieldset>
+            <legend>로그인 정보</legend>
+            <ul>
+                <li>
+                    <label for="userid">아이디</label>
+                    <input id="userid" name="userid" type="text">
+                </li>
+                <li>
+                    <label for="pwd1">비밀번호</label>
+                    <input id="pwd1" name="pwd1" type="password">
+                </li>
+                <li>
+                    <label for="userid">비밀번호 확인</label>
+                    <input id="pwd2" name="pwd2" type="password">
+                </li>
+                <li>
+                    <label for="level">회원 등급</label>
+                    <input id="level" name="level" type="text" value="준회원">
+                </li>
+            </ul>
+        </fieldset>
+
+        <!-- 개인 정보 -->
+        <fieldset>
+            <legend>개인 정보</legend>
+            <ul>
+                <li>
+                    <label for="fullname">비밀번호</label>
+                    <input id="fullname" name="fullname" type="text" placeholder="5자미만 공백없이">
+                </li>
+                <li>
+                    <label for="email">메일 주소</label>
+                    <input id="email" name="email" type="email" placeholder="abcd@domain.com">
+                </li>
+                <li>
+                    <label for="tel">연락처</label>
+                    <input id="tel" name="tel" type="tel">
+                </li>
+            </ul>
+        </fieldset>
+
+        <!-- 제출 버튼 -->
+        <fieldset>
+            <button type="submit"> 제 출 </button>
+        </fieldset>
+   </form>
+</body>
+</html>
+
