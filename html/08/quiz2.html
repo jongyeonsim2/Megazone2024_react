@@ -4,7 +4,94 @@
 	<meta charset="UTF-8">
 	<title>quiz 2</title>
     <style>
+      /*
+        1. section 영역의 중앙 배치되도록 설정.
+        2. article 영역이 4개가 있음. 
+           위쪽에 2개, 아래쪽에 2개.
+
+           현재의 tag의 구조를 변경하지 않고, CSS 적용.
+
+           - 구조를 변경하지 않고, css 만 적용하기 위해서는
+             floating 이 되도록 해야함.
+           - float  속성 설정.
+             방향(left), 폭설정(section 폭의 양분이 되는 범위).
+
+             => 위에 2개, 아래에 2개의 형태로 floating 됨.
+
+           - float 속성 해제
+             fload 속성을 해제하지 않으면,
+               다음에 추가되는 요소가 float 속성이 정의되어 있으면, floating가
+               되고,
+
+               float 속성을 설정하지 않으면, floating 된 요소 밑으로 위치하게 됨.
+               => footer 영역에 대해서 고려해야 함.
+        3. footer 의 p 요소에만 다르게 스타일을 적용.
+           - 현재의 tag 구조를 유지
+           - 현재의 tag 구조를 변경
+
+        4. h2, h3, p 의 font size 설정.
+           h2 > h3 > p 순으로 font size 설정 : em을 사용. 상대적 사이즈로 조정.
+      
+      */
         
+      /* todo 1번 */
+      section {
+        width: 800px; /* article 의 floating 갯수와 관계가 있는 정보 */
+        margin: 0 auto;
+      }
+
+      /* todo 2번 */
+      article {
+        float: left;
+        width: 350px;
+        height: 200px;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+
+      footer {
+        clear:left; /* float 해제 */
+        width: 100%;
+        height: 50px;
+        background-color: #222;
+      }
+
+      /* todo 3번 */
+      p {
+        line-height: 20px; /* text line 여유 */
+        font-size: 12px;
+      }
+
+      /* id 스타일 */
+      /* #footer-p {
+        color:#fff;
+        font-size: 0.9em;
+        text-align: center;
+        line-height: 50px;
+      } */
+
+      /* 연결 선택자 - 자식 선택자 
+          연결 선택자 - 둘 이상의 선택자를 연결해서 스타일이 적용될 요소가
+                  어느 부분인지를 지정하는 방법.
+
+          연결 선택자 - 자식 선택자
+                      두 요소 사이에 '>' 기호를 표시해서 부모 요소와 
+                      자식 요소를 구분.
+
+          따라서, footer 요소에 포함된 p 요소를 선택해서 스타일 적용이 가능.
+          
+          footer > p { .... }
+       
+      */
+      footer > p {
+        color:#fff;
+        font-size: 0.9em;
+        text-align: center;
+        line-height: 50px;
+      }
+
+      /* todo 4번 */
     </style>
 </head>
 <body>
@@ -27,7 +114,10 @@
     <p>강아지를 잃어버릴 염려가 있으니 산책할 무렵이 되면 이름표를 꼭 목에 걸어주도록 하세요. 그리고 방울이 달린 목걸이를 하고자 하실 때는 신중하셔야 합니다. 움직일 때마다 방울이 딸랑 거리면 신경이 예민한 강아지들에게는 좋지 않은 영향을 끼칠 수 있기 때문입니다.</p>
 	</article>
 	<footer>
-		<p>boxmodel 연습하기</p>
+    <!-- 
+		<p id="footer-p">boxmodel 연습하기</p>-->
+    <!-- 연결 선택자 - 자식 선택자 -->
+    <p>boxmodel 연습하기</p>
 	</footer>
  </section>
 </div>
