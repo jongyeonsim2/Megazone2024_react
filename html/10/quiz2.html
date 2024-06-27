@@ -98,6 +98,22 @@
         background-color: #fff8dc;
     }
 
+
+    /* 
+    1. contents2 안의 자식 요소중에서 3번째 자식 요소를 선택
+    2. contents2 안에서 p tag 중에서 3번째 요소를 선택
+    */
+    /*
+        구조 가상 클래스 : 웹 문서의 구조를 기준으로 특정 위치에 있는 요소를 선택.
+    
+        1. :nth-child(n) - 부모 안에 있는 모든 요소 중에서 n 번째 자식 요소를 선택.
+        2. A:nth-of-type(n) - 부모 안에 있는 A 요소 중에서 n 번째 요소를 선택.
+    */
+
+    .contents2 :nth-child(3) {
+        background-color: #ff0;
+    }
+
   </style>
 </head>
 <body>
@@ -125,6 +141,10 @@
       </div>
    </div>
 
+   <!-- 
+    1. contents2 안의 자식 요소중에서 3번째 자식 요소를 선택
+    2. contents2 안에서 p tag 중에서 3번째 요소를 선택
+   -->
    <div class="contents2">
     <h2>이용 안내</h2>
     <p>p1 - Excepteur do est eiusmod nulla et veniam. Labore officia officia ex aliqua exercitation aliqua laborum Lorem deserunt ut ullamco labore anim. Officia eu duis aliquip incididunt. Do laborum et consequat aliqua sint consectetur.</p>
