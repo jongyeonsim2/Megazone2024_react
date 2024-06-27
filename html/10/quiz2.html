@@ -75,19 +75,32 @@
     /* :target 가상 클래스 선택자 - 앵커 대상에 스타일 적용 */
 
     /* 이용 안내 */
+    /*
+        앵커를 사용해 intro 라는 target 위치로 이동하는 경우,
+        intro 라는 요소에 스타일을 적용
+        - 배경색 : 파란색, 글자색 : 흰색
+    */
+    #intro:target {
+        background-color: #0069e0;
+        color: #fff;
+    }
 
     /* 개실 소개 */
+    /* 배경색 : 주황색 */
+    
 
     /* 예약 방법 및 요금 */
+    /* 배경색 : 베이지색 */
+
   </style>
 </head>
 <body>
    <div class="container">
     <nav class="navi">
         <ul>
-            <li><a href="#">이용 안내</a></li>
-            <li><a href="#">객실 소개</a></li>
-            <li><a href="#">예약 방법 및 요금</a></li>
+            <li><a href="#intro">이용 안내</a></li>
+            <li><a href="#room">객실 소개</a></li>
+            <li><a href="#reservation">예약 방법 및 요금</a></li>
             <li><a href="#">예약하기</a></li>
         </ul>
     </nav>
