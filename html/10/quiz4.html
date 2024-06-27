@@ -6,6 +6,61 @@
    <title>quiz4</title>
   <style>
    
+    /* ul 스타일 적용 */
+    .main-menu {
+        margin: 50px auto;
+        padding: 0;
+        list-style: none;
+        width: 605px;
+        height: 35px;
+        background-color: #dadada;
+    }
+
+    /* li 의 오른쪽에 border 선을 표시.
+        단, 나중에 마지막 li의 border 선을 없애야 함.
+    */
+    .main-menu li {
+        float: left;
+        border-right: 1px solid #929292;
+    }
+
+    .main-menu li a:link {
+        color:black;
+        text-decoration: none;
+        text-align: center;
+        display: block;
+        width: 100px;
+        height: 35px;
+        line-height: 35px;
+    }
+
+    /*
+        last-child 를 사용하면, 향후에 메뉴가 추가가 되더라고,
+        현재의 코드를 그대로 사용할 수 있는 장점이 있음.
+        유지보수성을 고려해서, last-child 를 사용함.
+    */
+
+    /* li 의 마지막 요소의 border 선을 제거. */
+    .main-menu li:last-child {
+        border: none;
+    }
+
+    .main-menu li a:visited {
+        color: black;
+    }
+
+    /* li 의 마지막 요소외에 마우스를 올리면, 스타일 적용. */
+    .main-menu li:not(:last-child) a:hover {
+        background-color: #555;
+        color: #fff;
+    }
+
+    /* li 의 마지막 요소에 마우스를 올리면, 스타일 적용. */
+    .main-menu li:last-child a:hover {
+        background-color: red;
+        color: #fff;
+    }
+
   </style>
 </head>
 <body>
