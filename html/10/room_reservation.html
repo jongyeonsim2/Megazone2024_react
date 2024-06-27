@@ -144,6 +144,33 @@
         margin: auto;
         padding: 7px 25px;
     }
+
+    /*
+        구조 가상 클래스 : 웹 문서의 구조를 기준으로 특정 위치에 있는 요소를
+                        찾아 스타일을 적용할 때 사용하는 가상 클래스 선택자임.
+                        다양한 구조 가상 클래스가 존재. 필요에 따라 선택해서 사용.
+
+        A:first-of-type - 부모 안에 있는 A 라는 요소 중에서 첫 번째 요소를 선택.
+    */
+
+    /*
+        reservation form 안에서 첫 번째 fieldset 의 label 을 선택.
+        => label 의 폭의 설정과 float 를 왼쪽으로 설정하면,
+            input 요소도 자동으로 정렬되게 끔.
+    */
+    #reservation fieldset:first-of-type label {
+      float: left;
+      font-size: 13px;
+      width: 60px;
+    }
+
+    /* 요소 상태에 따른 가상 클래스 */
+    /* :not 가상 클래스 선택자 : 특정 요소를 제외하고 스타일 적용 */
+
+    /* input tag 의 type 속성값이 radio 요소를 제외하고 스타일 적용 */
+    #reservation input:not([type=radio]) {
+        
+    }
   </style>
 </head>
 <body>
@@ -162,11 +189,11 @@
             <legend>개인 정보</legend>
             <ul>
                 <li>
-                    <labe for="fullname">이름</labe>
+                    <label for="fullname">이름</label>
                     <input id="fullname" name="fullname" type="text">
                 </li>
                 <li>
-                    <labe for="tel">연락처</labe>
+                    <label for="tel">연락처</label>
                     <input id="tel" name="tel" type="tel">
                 </li>
             </ul>
