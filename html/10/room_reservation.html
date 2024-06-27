@@ -1,15 +1,16 @@
-<!-- quiz2.html -->
+<!-- room_reservation.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
    <meta charset="UTF-8">
-   <title>Document</title>
+   <title>객실 예약</title>
   <style>
-
     .container {
         width: 960px;
         margin: 0 auto;
     }
+
+    /******************* 메뉴 *******************/
    
     .navi {
         width: 960px;
@@ -98,31 +99,93 @@
         background-color: #fff8dc;
     }
 
+
+
+
+
+
+
+    /******************* form - room 예약 *******************/
+
+    #reservation {
+        background: #fff;
+        border: 1px solid #222;
+        border-radius: 5px;
+        padding: 20px;
+        width: 400px;
+        margin: 30px auto;
+    }
+
+    #reservation fieldset {
+        border: 1px solid #ccc;
+        margin-bottom: 30px;
+    }
+
+    #reservation legend {
+        font-size: 16px;
+        font-weight: bold;
+        padding-left: 5px;
+        padding-bottom: 10px;
+    }
+
+    #reservation ul li {
+        line-height: 30px;
+        list-style: none;
+        padding: 5px 10px;
+        margin-bottom: 2px;
+    }
+
+    #reservation button {
+        border: 1px solid #222;
+        border-radius: 20px;
+        display: block;
+        font: 16px 맑은고딕, 굴림, 돋움;
+        letter-spacing: 1px;
+        margin: auto;
+        padding: 7px 25px;
+    }
   </style>
 </head>
 <body>
    <div class="container">
     <nav class="navi">
         <ul>
-            <li><a href="#intro">이용 안내</a></li>
-            <li><a href="#room">객실 소개</a></li>
-            <li><a href="#reservation">예약 방법 및 요금</a></li>
+            <li><a href="quiz2.html#intro">이용 안내</a></li>
+            <li><a href="quiz2.html#room">객실 소개</a></li>
+            <li><a href="quiz2.html#reservation">예약 방법 및 요금</a></li>
             <li><a href="room_reservation.html">예약하기</a></li>
         </ul>
     </nav>
 
-    <div id="intro" class="contents">
-        <h2>이용 안내</h2>
-        <p>Excepteur do est eiusmod nulla et veniam. Labore officia officia ex aliqua exercitation aliqua laborum Lorem deserunt ut ullamco labore anim. Officia eu duis aliquip incididunt. Do laborum et consequat aliqua sint consectetur.</p>
-      </div>
-      <div id="room" class="contents">
-        <h2>객실 소개</h2>
-        <p>Qui magna culpa minim reprehenderit magna in nisi ipsum. Ad cillum tempor minim fugiat est dolor. Cillum sit qui minim sint officia nostrud cillum cupidatat pariatur ipsum eiusmod velit labore. Sit in non fugiat minim sit.</p>
-      </div>
-      <div id="reservation" class="contents">
-        <h2>예약 방법 및 요금</h2>
-        <p>Fugiat aliquip mollit proident velit magna esse ea officia eu. Esse do aliqua proident culpa eiusmod duis minim deserunt eu reprehenderit ut tempor. </p>
-      </div>
+    <form id="reservation">
+        <fieldset>
+            <legend>개인 정보</legend>
+            <ul>
+                <li>
+                    <labe for="fullname">이름</labe>
+                    <input id="fullname" name="fullname" type="text">
+                </li>
+                <li>
+                    <labe for="tel">연락처</labe>
+                    <input id="tel" name="tel" type="tel">
+                </li>
+            </ul>
+        </fieldset>
+        <fieldset>
+            <legend>객실 형태</legend>
+            <ul>
+                <li>
+                    <input type="radio" name="room" id="basic">
+                    <label for="basic">기본형(최대 2인)</label>
+                </li>
+                <li>
+                    <input type="radio" name="room" id="family">
+                    <label for="family">가족형(최대 8인)</label>
+                </li>
+            </ul>
+        </fieldset>
+        <button type="submit"> 제출 </button>
+    </form>
    </div>
 </body>
 </html>
