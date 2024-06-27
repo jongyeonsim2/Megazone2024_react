@@ -169,7 +169,28 @@
 
     /* input tag 의 type 속성값이 radio 요소를 제외하고 스타일 적용 */
     #reservation input:not([type=radio]) {
-        
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        padding: 5px;
+        width: 200px;
+    }
+
+    /* 요소 상태 가상 클래스 and 사용자의 특정 동작에 반응하는 가상 클래스 */
+    #reservation input:not([type=radio]):hover {
+        border-color: red;
+    }
+
+    /* 요소 상태에 따른 가상 클래스 */
+    /* :checked 가상 클래스 선택자 - checked 속성이 있는 요소에 스타일 적용 */
+    /* 라디오 버튼을 클릭했을 때, label 을 빨간색 + 굵은 글자로 변경 
+    
+        => radio 의 형제 level( 인접 형제 선택자 ) 인 label 요수 중에서
+            첫 번째 요소만 선택되록 해야함.
+    */
+
+    #reservation input:checked + label {
+        color: red; /* label 의 글자색 */
+        font-weight: bold;
     }
   </style>
 </head>
