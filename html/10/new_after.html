@@ -1,0 +1,36 @@
+<!-- new_after.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <title>가상 요소</title>
+  <style>
+   .container {
+    width: 960px;
+    margin: 0 auto;
+   }
+
+   ul li {
+    margin: 15px;
+   }
+
+   /*
+        가상 요소 : 문서 안의 특정 부분에 스타일을 지정하기 위해서
+                가상으로 요소를 만들어서 추가.
+
+        ::before, ::after - 지정한 요소의 내용 앞 뒤에 콘텐츠를 추가
+   */
+  </style>
+</head>
+<body>
+   <div class="container">
+    <h1>제품 목록</h1>
+    <ul>
+        <li class="new">제품 A</li>
+        <li>제품 B</li>
+        <li>제품 C</li>
+        <li class="new">제품 D</li>
+    </ul>
+   </div>
+</body>
+</html>
