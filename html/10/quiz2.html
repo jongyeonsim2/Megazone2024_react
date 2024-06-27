@@ -36,6 +36,49 @@
         width: 150px;
         padding: 10px;
     }
+
+    /*
+        사용자 특정 동작에 반응하는 가상 클래스
+    */
+
+    /* 방문하지 않은 링크, 방문한 링크에 스타일 적용 */
+    .navi a:link, .navi a.visited {
+        display: block;
+        font-size: 14px;
+        color: #000;
+        padding: 10px;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    /* 마우스 포인터를 올리거나 초점을 맞우었을 때 스타일 적용 */
+    .navi a:hover, .navi a:focus {
+        background-color: #222;
+        color: #fff;
+    }
+
+    /* 마우스 포인터로 클릭을 했을 때 스타일 적용 */
+    .navi a:active {
+        background-color: greenyellow;
+    }
+
+    /* 이용안내, 객실소개, 예약 방법 및 요금 contents의 스타일 적용*/
+    .contents {
+        margin: 30px auto;
+        width: 400px;
+        padding: 20px;
+        border: 1px solid #222;
+        border-radius: 5px;
+    }
+
+    /* 요소 상태에 따른 가상 클래스 */
+    /* :target 가상 클래스 선택자 - 앵커 대상에 스타일 적용 */
+
+    /* 이용 안내 */
+
+    /* 개실 소개 */
+
+    /* 예약 방법 및 요금 */
   </style>
 </head>
 <body>
