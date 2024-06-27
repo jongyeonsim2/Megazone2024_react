@@ -92,3 +92,38 @@ body {
 
 
 /*********** 여기서 부터는 quiz3.css 임. ***********/
+
+/* form input 요소에 스타일 적용 */
+#signup input {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 13px;
+    padding: 5px;
+    width: 200px;
+}
+
+/* 특정 속성이 있는 요소를 선택하는 속성 선택자를 활용 */
+/* 필수 입력 필드(required) 스타일 적용 - border을 붉은색 */
+#signup input[required] {
+    border: 1px red solid;
+}
+
+/* 읽기 전용 필드(readoonly) 스타일 적용 - border 없음. */
+#signup input[readonly] {
+    border: none;
+}
+
+
+
+
+/* button 이 있는 fieldset 의 border 제거 */
+#signup fieldset:last-of-type {
+    border:none;
+    margin-bottom:0;
+  }
+
+/* button 에 마우스 올렸을 때 스타일 적용 - 바탕 검정, 글자 흰색 */
+#signup button:hover {
+    background-color: #222;
+    color: #fff;
+}
