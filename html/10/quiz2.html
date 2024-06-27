@@ -5,12 +5,42 @@
    <meta charset="UTF-8">
    <title>Document</title>
   <style>
+
+    .container {
+        width: 960px;
+        margin: 0 auto;
+    }
    
+    .navi {
+        width: 960px;
+        height: 60px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid#ccc;
+    }
+
+    /*
+        향후에 순서없이 리스트를 추가될 수 있어,
+        스타일의 적용이 함부로 되지 않도록하기 위해서
+        class 스타일을 사용하여 스타일이 부분적으로
+        적용이 되도록 제어하기 위함.
+    */
+
+    .nvai ul {
+        list-style: none;
+        padding-top: 10px;
+        padding-bottom: 5x;
+    }
+
+    .navi ul li {
+        display: inline-block;
+        width: 150px;
+        padding: 10px;
+    }
   </style>
 </head>
 <body>
-   <div>
-    <nav>
+   <div class="container">
+    <nav class="navi">
         <ul>
             <li><a href="#">이용 안내</a></li>
             <li><a href="#">객실 소개</a></li>
