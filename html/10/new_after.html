@@ -20,6 +20,19 @@
 
         ::before, ::after - 지정한 요소의 내용 앞 뒤에 콘텐츠를 추가
    */
+
+   /* 순서없는 리스트 항목에서 class 가 new인 요소를 선택,
+    해당 요소의 뒤에다가 스타일을 적용
+    */
+   li.new::after {
+      content: "NEW!!";
+      font-size: x-small;/* 절대 크기 : 브라우저가 지정한 크기( 10px )  */
+      padding: 2px 4px;
+      margin: 0 10px;
+      border-radius: 2px;
+      background: #f00;
+      color: #fff;
+   }
   </style>
 </head>
 <body>
