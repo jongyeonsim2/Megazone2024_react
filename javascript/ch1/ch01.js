@@ -108,4 +108,70 @@ console.log(empptyVar);
 let realEmptyVar;
 console.log(realEmptyVar);
 
-/** 형변환 */
+/** 형변환
+ *   - 묵시적 형변환
+ *   - 명시적 형변환
+ */
+
+// 묵시적 형변환
+let number = 10;
+let string = "20";
+
+const result = number + string;
+
+// 1020 => 10을 문자로 형변환 후 문자열 합치기 => 묵시적 형변환
+console.log(result);
+
+// 명시적 형변환
+let strA = "10";
+let strB = "10개";
+let strC = "개10";
+
+let numA = Number(strA);
+let numB = Number(strB); // NaN
+
+console.log(numA);
+console.log(numB);
+
+// 문자가 포함된 숫자를 숫자로 변환하기
+let numAA = parseInt(strA, 10); // srtA 를 10 진수 숫자로
+let numBB = parseInt(strB, 10); // srtA 를 10 진수 숫자로
+let numCC = parseInt(strC, 10);
+
+console.log(numAA);
+console.log(numBB);
+
+// 결과가 NaN 으로 반환됨.
+// strC 의 문자열이 문자로 시작하기 때문임.
+// parseInt 내장함수 : 문자열의 첫 문자부터 숫자로 변환하게
+//          됨으로, 문자로 시작하면 NaN 을 반환하게 됨.
+console.log(numCC);
+
+let num16AA = parseInt(strA, 16);
+let num16BB = parseInt(strA, 16);
+
+console.log(num16AA);
+console.log(num16BB);
+
+// 숫자를 문자로 형변환
+let num = 2022;
+let str = String(num); // 명시적 형변환
+
+console.log(str);
+
+let varA;
+let varB = null;
+let varC = true;
+
+let strvarA = String(varA);
+let strvarB = String(varB);
+let strvarC = String(varC);
+
+console.log(strvarA); // 문자열 undefined 가 반환
+console.log(strvarB); // 문자열 null 이 반환
+console.log(strvarC); // 문자열 true 이 반환.
+
+// Boolean 으로 형변환
+let varTrue = 1;
+let varFalse = 0;
+let varBlank = "";
