@@ -543,3 +543,52 @@ function bar() {
 foo();
 bar();
 console.log(a);
+
+/**
+ * 객체
+ *
+ * 객체 생성 방법
+ * let objA = {}; // 리터럴 객체 문법
+ * let objB = new Object(); // 객체 생성자 문법
+ *
+ * let person = {
+ *      name : "홍길동",  // name 프로퍼티( 자바에서는 멤버 )
+ *      age : 25          // age 프로퍼티( 자바에서는 멤버 )
+ * }
+ *
+ */
+console.log("-- 객체 --");
+
+let person = {
+  name: "홍길동",
+  age: 25,
+  "like cat": true,
+};
+
+const personName = person.name;
+const personAge = person["age"];
+
+console.log(personName);
+console.log(personAge);
+
+// 프로퍼티 추가
+person.gender = "male";
+person["nickname"] = "winterlood";
+
+console.log(person.gender);
+console.log(person["nickname"]);
+
+// 프로퍼티 추가 - key 와 value 가 유동적.
+function addProperty(obj, key, value) {
+  obj[key] = value;
+}
+
+let obj = {};
+
+addProperty(obj, "a", 1);
+addProperty(obj, "b", 2);
+addProperty(obj, "c", 3);
+
+console.log(obj);
+
+// 프로퍼티 수정
