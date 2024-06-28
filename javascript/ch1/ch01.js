@@ -420,3 +420,109 @@ function func() {
   // func 함수의 선언부
   console.log("hello");
 }
+
+/**
+ * 함수 표현식
+ *
+ * 함수를 생성하고 변수에 값으로 저장하는 방법.
+ *
+ * 함수 표현식으로 만든 함수는 호이스팅되지 않음.
+ */
+console.log("-- 함수 표현식 --");
+
+let greeting3 = function () {
+  console.log("hello");
+};
+
+greeting3();
+
+let greeting4 = greeting3; // () 가 없는 점에 주의.
+
+greeting4();
+
+// 함수 표현식으로 호이스팅 확인.
+funcA();
+//funcB(); //함수 표현식은 호이스팅을 지원하지 않음.
+
+function funcA() {
+  // 일반적인 함수
+  console.log("func A");
+}
+
+// let funcB = function () {
+//   // 함수 표현식으로 만든 함수
+//   console.log("func B");
+// };
+
+/**
+ * 콜백 함수(Callback Function)
+ *
+ * 함수를 다른 함수의 매개변수로 사용되어지는 경우.
+ */
+console.log("-- 콜백 함수 --");
+
+function parentFunc(callback) {
+  console.log("parent");
+  callback();
+}
+
+function childFunc() {
+  console.log("child");
+}
+
+parentFunc(childFunc);
+
+// 함수 표현식을 이용한 콜백함수
+console.log("-- 함수 표현식을 이용한 콜백함수 --");
+
+function repeat(count, callback) {
+  // callback 에 double 함수가 전달.
+  for (let idx = 0; idx < count; idx++) {
+    callback(idx + 1);
+  }
+}
+
+const double = function (count) {
+  console.log(count * 2);
+};
+
+repeat(5, double); //double 은 함수 표현식.
+
+// 화살표 표현식(화살표 함수) : 함수 표현식의 단축형
+
+// let funcA = (매개변수) => 반환값;
+
+// let funcA = function(매개변수) {
+//     return 반환값;
+// }
+console.log("-- 화살표 표현식 --");
+
+greeting4 = (name) => `hello ${name}`;
+
+greetingText = greeting4("홍길동");
+
+console.log(greetingText);
+
+greeting4 = (name) => {
+  let greetingText = `hello ${name}`;
+  return greetingText;
+};
+
+console.log(greeting4("홍길동2"));
+
+// 콜백함수 + 화살표 함수
+console.log("-- 콜백함수 + 화살표 함수 --");
+
+let isConfirm = true;
+
+// 콜백 메소드, 매개변수 두 개가 함수 표현식.
+function confirm(onYes, onNo) {
+  if (isConfirm) onYes();
+  else onNo();
+}
+
+// 콜백 메소드 호출
+confirm(
+  () => console.log("승인"),
+  () => console.log("거부")
+);
