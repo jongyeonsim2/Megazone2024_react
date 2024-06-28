@@ -167,11 +167,204 @@ let strvarA = String(varA);
 let strvarB = String(varB);
 let strvarC = String(varC);
 
-console.log(strvarA); // 문자열 undefined 가 반환
-console.log(strvarB); // 문자열 null 이 반환
-console.log(strvarC); // 문자열 true 이 반환.
+console.log(strvarA); // undefined 문자열이 반환
+console.log(strvarB); // null 문자열이 반환
+console.log(strvarC); // true 문자열이 반환.
 
 // Boolean 으로 형변환
-let varTrue = 1;
-let varFalse = 0;
-let varBlank = "";
+let varTrue = "1"; //true
+let varNumTrue = 1; //true
+let varFalse = "0"; //true
+let varNumFalse = 0; //fase
+let varBlank = ""; //false
+
+let boolA = Boolean(varTrue);
+let boolNumA = Boolean(varNumTrue);
+let boolB = Boolean(varFalse);
+let boolNumB = Boolean(varNumFalse);
+let boolC = Boolean(varBlank);
+
+console.log(boolA);
+console.log(boolNumA);
+console.log(boolB);
+console.log(boolNumB); //false
+console.log(boolC);
+
+/** 연산자 */
+// 대입연산자
+let numA1 = 1;
+let numB1;
+let numC1;
+
+numB1 = numC1 = numA1;
+
+console.log(numA1, numB1, numC1);
+
+// 산술연산자
+let numberA = 1;
+let numberB = 2;
+
+console.log(numberA + numberB);
+console.log(numberA - numberB);
+console.log(numberA * numberB);
+console.log(numberA / numberB);
+console.log(numberA % numberB);
+
+// 복합대입연산자
+let number1 = 10;
+
+number1 += 10;
+console.log(number1);
+
+number1 -= 10;
+console.log(number1);
+
+number1 *= 10;
+console.log(number1);
+
+number1 /= 10;
+console.log(number1);
+
+number1 %= 10;
+console.log(number1);
+
+// 증감 연산자
+let a = 1;
+//a++; // 후위 연산자
+console.log("증감 연산자");
+console.log(a++); // 1 => 참조 후 증가
+console.log(a); // 2
+
+a = 1;
+console.log(++a); // 2 => 증가 후 참조
+console.log(a); // 2
+
+// 논리 연산자
+// or(||) : 둘 중 하나라도 참이면 참.
+// and(&&) : 둘 중 하나라도 거짓이면 거짓.
+// not(!) : 참이면 거짓, 거짓이면 참.
+
+boolA = true;
+boolB = false;
+
+console.log(boolA || boolB); //true
+console.log(boolA && boolB); //false
+console.log(!boolA); //false
+console.log(!boolB); //true
+
+// 비교연산자
+numberA = 2;
+numberB = 2;
+numberC = "2";
+
+console.log(numberA === numberB); //true
+console.log(numberB === numberC); //false
+
+console.log(numberA !== numberB); //false
+console.log(numberB !== numberC); //true
+
+console.log(numberA < numberB); //false
+console.log(numberB > numberC); //false
+
+console.log(numberA <= numberB); //true
+console.log(numberB >= numberC); //true
+
+//null 병합 연산자
+// 값이 확정된 변수를 찾을 때 사용.
+// null, undefined : 값이 확정되지 않은 변수
+varA = 10;
+varB = 20;
+varC;
+
+console.log(varA ?? varB); //10 => 연산자의 왼쪽을 기준.
+console.log(varB ?? varC); //20
+
+// 변수 user에 해당하는 사용자의 이름이 없다면,
+// 닉네임으로 사용.
+let customerName;
+let nickName = "winterHood";
+
+let user = customerName ?? nickName;
+
+console.log(user);
+
+//typeof 연산자
+varA = 1; //number
+varA = "winterHood"; //string
+
+console.log(typeof varA);
+
+// 확인 결과 string 이면, varA++ 하지 않도록 확인함.
+//console.log(varA++); //NaN
+
+//삼항 조건 연산자
+varA = "메뉴가 뭐지?";
+
+typeof varA === "string"
+  ? console.log("문자 자료형")
+  : console.log("문자형 자료형이 아님");
+
+//조건문
+num = 11;
+
+if (num === 10) {
+  console.log("조건 일치!");
+  console.log("num은 10 이상입니다.");
+} else if (num > 10) {
+  console.log("조건 일치!");
+  console.log("num은 10 보다 큽니다.");
+} else {
+  console.log("조건 불일치!");
+  console.log("num은 10 작습니다.");
+}
+
+//switch 문
+let fruit = "apple";
+
+switch (fruit) {
+  case "apple": {
+    console.log("사과");
+    break;
+  }
+  case "banana": {
+    console.log("바나나");
+    break;
+  }
+  default: {
+    console.log("해당 과일이 아님.");
+  }
+}
+
+//반복문
+for (let i = 1; i <= 10; i++) {
+  if (i > 5) {
+    console.log("반복문 종료");
+    break;
+  }
+  console.log(i);
+}
+
+//함수
+function greeting() {
+  console.log("안녕하세요.");
+}
+
+greeting();
+
+function getArea() {
+  let width = 10;
+  let height = 20;
+
+  let area = width * height;
+
+  console.log(area);
+}
+
+getArea();
+
+function getArea(width, height) {
+  let area = width * height;
+  console.log(area);
+}
+
+getArea(10, 20);
