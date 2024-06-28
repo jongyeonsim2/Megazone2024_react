@@ -592,3 +592,89 @@ addProperty(obj, "c", 3);
 console.log(obj);
 
 // 프로퍼티 수정
+let cat = {
+  name: "귀요미",
+  age: 1,
+};
+
+cat.name = "귀요미5";
+cat["age"] = 2;
+
+console.log(cat);
+
+// 프로퍼티 삭제
+console.log(cat);
+
+delete cat.name;
+delete cat["age"];
+
+console.log(cat);
+
+// 상수 객체의 프로퍼티 : 수정, 추가, 삭제 가능
+const obj2 = {
+  a: 1,
+  b: "text",
+};
+
+obj2.a = 2;
+obj2.c = undefined;
+delete obj2.b;
+
+console.log(obj2);
+
+// 객체에 특정 프로퍼티의 존재 유무
+let obj3 = {
+  a: 1,
+};
+
+console.log(obj3.a);
+console.log(obj3.b);
+
+let isPropertyExists = obj3.b !== undefined;
+
+console.log(isPropertyExists);
+
+// 메소드
+let person2 = {
+  name: "홍길동",
+  sayHi: function () {
+    // 객체의 sayHi 메소드
+    console.log("안녕");
+  },
+};
+
+person2.sayHi();
+
+/**
+ * 배열 : 배열의 요소는 어떤 값도 올 수 있음.
+ *
+ * let arrA = new Array(); // 배열 생성자
+ * let arrB = [];   // 배열 리터럴
+ *
+ */
+
+let arr = [
+  1,
+  "1",
+  true,
+  null,
+  undefined,
+  () => {},
+  function () {},
+  [1, 2, 3],
+  { a: 1 },
+];
+
+console.log(arr);
+
+// 배열 인덱스
+let food = ["짜장면", "대연동 서소문 족발", "치킨"];
+
+console.log(food[0]);
+console.log(food[1]);
+console.log(food[2]);
+
+food[2] = "스시";
+food[3] = "대방어 강추";
+
+console.log(food);
