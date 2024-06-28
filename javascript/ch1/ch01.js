@@ -362,9 +362,61 @@ function getArea() {
 
 getArea();
 
-function getArea(width, height) {
+// 매개변수가 있는 함수
+function getArea2(width, height) {
   let area = width * height;
   console.log(area);
 }
 
-getArea(10, 20);
+getArea2(10, 20);
+
+// 결과를 반환하는 함수
+function getArea3(width, height) {
+  let area = width * height;
+  return area;
+}
+
+let result2 = getArea3(10, 20);
+
+console.log(result2);
+
+// 중첩 함수 : 함수 내에 또 다른 함수를 선언.
+function greeting2() {
+  function greetingWithName(name) {
+    //중첩 함수
+    console.log(`hello! ${name}`);
+  }
+
+  let name = "홍길동";
+  greetingWithName(name);
+}
+
+greeting2();
+
+/**
+ * 함수와 호이스팅(Hoisting)
+ *
+ * - 호이스팅이란.
+ * 함수 func에 대한 선언이 호출 코드보다 아래에 위치하지만,
+ * 마치 호출보다 먼저 함수를 선언한 것처럼 자연스럽게 동작하고 있음.
+ *
+ * 함수를 선언하기 전에도 호출할 수 있는 자바스크립트의 기능.
+ *
+ * - 준비 단계란.
+ * 자바스크립트는 코드를 실행하기 전에 준비 단계를 수행.
+ * 따라서, 준비 단계에서 중첩 함수가 아닌 것들은 모두 찾아서
+ * 미리 생성을 해두게 됨.
+ *
+ * - 장점.
+ * 코드 내에서 함수 선언의 위치를 강제하지 않기 때문에 더 유연한
+ * 프로그래밍이 가능함.
+ *
+ */
+console.log("-- 함수와 호이스팅 --");
+
+func(); // func 함수 호출
+
+function func() {
+  // func 함수의 선언부
+  console.log("hello");
+}
