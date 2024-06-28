@@ -526,3 +526,20 @@ confirm(
   () => console.log("승인"),
   () => console.log("거부")
 );
+
+/** 스코프 */
+console.log("-- 스코프 --");
+
+a = 1;
+
+function foo() {
+  console.log(a);
+}
+
+function bar() {
+  console.log(a);
+}
+
+foo();
+bar();
+console.log(a);
