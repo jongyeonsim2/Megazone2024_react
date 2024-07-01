@@ -456,6 +456,7 @@ console.log("--- 스프레드, rest 연산자 ---");
  *              전개 연산자라고도 함.
  *
  * rest 연산자 : 개별 요소를 다시 배열로 묶어주는 기능.
+ *              rest 에는 "나머지", 나머지는 하나로 묶겠다는 의미가 있음.
  */
 
 console.log("--- 스프레드 연산자(배열) ---");
@@ -493,6 +494,7 @@ console.log("--- rest 매개변수 ---");
 // 스프레드 연산자의 반대 기능. 즉, 요소를 배열로 묶는 기능.
 
 function func7(param, ...rest) {
+  // param 매개변수를 제외한 나머지, 그래서, 나머지는 배열로 묶겠다.
   console.log(param); // 1 이 할당됨.
   console.log(rest); // 2,3,4 가 배열로 묶여져서 할당됨.
 }
@@ -505,3 +507,125 @@ func7(1, 2, 3, 4);
 //     console.log(param); // 1 이 할당됨.
 //     console.log(rest); // 2,3,4 가 배열로 묶여져서 할당됨.
 //   }
+
+console.log("--- 배열 메소드 ---");
+
+// 1. push : 요소 추가
+console.log("--- 1. push : 요소 추가 ---");
+let movie = ["비그치다", "매드맥스", "인사이드 아웃"];
+
+// 배열의 가장 끝에 요소를 추가하고, 배열의 길이를 반환.
+const newLength = movie.push("행복을 찾아서"); // 추천~~
+
+console.log(newLength);
+console.log(movie);
+
+movie.push("쇼군", "언어의 정원, 초소 5cm - love stroy");
+
+console.log(movie);
+
+//2. pop : 제거
+console.log("--- pop : 제거 ---");
+
+const removeItme = movie.pop();
+
+console.log(removeItme);
+console.log(movie);
+
+let movie1 = [];
+const removeItme2 = movie1.pop();
+
+console.log(removeItme2); //에러가 발생하지 않고, undefined 반환됨.
+
+//3. shift : 맨 앞의 요소를 제거, 제거한 요소를 반환
+console.log("--- shift : 제거 ---");
+
+const removeItme3 = movie.shift();
+
+console.log(removeItme3);
+console.log(movie);
+
+//4. unshift : 맨 앞에 요소를 추가, 배열의 길이를 반환
+console.log("--- unshift : 추가 ---");
+
+const newLength2 = movie.unshift("비그치다2");
+
+console.log(movie);
+
+/**
+ * shift, unshift
+ *
+ * unshift : 배열의 맨 앞에 추가. 기존의 배열 요소를 한 칸씩 뒤로
+ *          이동을 시켜야 함.
+ *
+ * shift : 배열의 맨 앞의 요소를 삭제. 기존의 배열 요소를 한 칸씩 앞으로
+ *          이동을 시켜야 함.
+ *
+ * 따라서, push, pop에 비해서, unshift 와 shift 는 성능이 낮음.
+ */
+
+//5. slice : 기존 배열에서 특정 범위를 잘라 새로운 배열을 반환함.
+//          원본 배열을 유지함.
+console.log("--- slice : 자르기 ---");
+
+const arr3 = [1, 2, 3];
+const sliced = arr.slice(0, 2); //0번째 인덱스에서 2개의 요소 선택
+
+console.log(arr);
+console.log(sliced);
+
+const sliced2 = arr.slice(1); //자르기 시작 위치만 설정
+console.log(sliced2); // 시작 위치에서 끝까지
+
+// 시작 위치를 음수로 설정한 경우
+console.log(arr3.slice(-1)); // 배열의 끝에서 첫 번째에서 끝까지 => 3
+console.log(arr3.slice(-2)); // 배열의 끝에서 두 번째에서 끝까지 => 2, 3
+console.log(arr3.slice(-3)); // 배열의 끝에서 세 번째에서 끝까지 => 1, 2, 3
+
+//6. concat : 서로 다른 배열을 이어부 붙여 새 배열을 반환하는 메소드.
+console.log("--- concat : 합치기 ---");
+
+arrA = [1, 2];
+arrB = [3, 4];
+
+let arrC = arrA.concat(arrB);
+
+console.log(arrC);
+
+// 배열의 순회 메소드
+console.log("--- 배열의 순회 메소드 ---");
+
+/**
+ * 7. foreach 메소드
+ *
+ *      - 인수로 함수를 요구함. => 콜백 메소드
+ *      - foreach 는 배열의 모든 요소를 각각 순회하여
+ *        인수로 전달된 콜백 메소드가 정의된 대로 요소를 작업.
+ *      - item : 현재 순회중인 배열 요소
+ *      - index : 현재 순회하는 배열 요소의 인덱스
+ *      - array : 순회 중이 배열
+ *
+ */
+
+// call back 메소드 정의 => foreach 메소드의 매개변수로 전달
+// SOLID의 OCP 원칙을 적용했다고 봐도 무방함.
+// 사용자 친화 API로 제공되고 있음. foreach() 이름 자체가.
+console.log("--- foreach, call back ---");
+function cb(item, idx) {
+  console.log(`${idx}번째 요소 : ${item}`);
+}
+
+const arr4 = [1, 2, 3, 4, 5];
+
+arr.forEach(cb);
+
+// 위의 콜백 메소드를 화살표 표현식으로 변경.
+console.log("--- foreach, 화살표 표현식 ---");
+arr4.forEach((item, idx) => {
+  console.log(`${idx}번째 요소 : ${item}`);
+});
+
+/**
+ * 8. 탐색 메소드
+ *
+ */
