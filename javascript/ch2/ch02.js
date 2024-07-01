@@ -419,3 +419,89 @@ person = {
 // 배열의 분해 할당과의 차이점.
 let { name5, age5, location5 } = person;
 console.log(name5, age5, location5);
+
+console.log("--- 함수의 매개변수 구조 분해 할당 ---");
+
+// 객체는 key 기준으로 분해 할당이 이루어짐으로
+// 아래의 결과는 모두 undefined가 할당됨.
+function func4({ name2, age2, location2 }) {
+  console.log(name2, age2, location2);
+}
+
+person = {
+  name: "홍길동",
+  age: 25,
+  location: "부산",
+};
+
+func4(person);
+
+// 객체는 key 기준으로 분해 할당이 이루어짐으로
+// 아래의 결과는 모두 정상적으로 할당됨.
+function func5({ name, age, location }) {
+  console.log(name, age, location);
+}
+
+person = {
+  name: "홍길동",
+  age: 25,
+  location: "부산",
+};
+
+func5(person);
+
+console.log("--- 스프레드, rest 연산자 ---");
+/**
+ * 스프레드 연산자 : 반복이 가능한 객체에서 값을 개별 요소로 분리하는 기능.
+ *              전개 연산자라고도 함.
+ *
+ * rest 연산자 : 개별 요소를 다시 배열로 묶어주는 기능.
+ */
+
+console.log("--- 스프레드 연산자(배열) ---");
+arrA = [1, 2, 3];
+arrB = [...arrA, 4, 5, 6]; // 스프레드 연산자(전개 연산자)
+// arrA 의 요소를 하나씩 분리해서, arrB 의 각 요소에 할당.
+
+console.log(arrB);
+
+console.log("--- 스프레드 연산자(객체) ---");
+objA = {
+  a: 1,
+  b: 2,
+};
+
+// objA 프로퍼티를 하나씩 분리해서, objB의 프로퍼티로 나열함.
+objB = {
+  ...objA, // 스프레드 연산자(전개 연산자)
+  c: 3,
+};
+
+console.log(objB);
+
+console.log("--- 스프레드 연산자(함수) ---");
+
+function func6(a, b, c) {
+  console.log(a, b, c);
+}
+
+arr = [1, 2, 3];
+
+func6(...arr); // 스프레드 연산자(전개 연산자)
+
+console.log("--- rest 매개변수 ---");
+// 스프레드 연산자의 반대 기능. 즉, 요소를 배열로 묶는 기능.
+
+function func7(param, ...rest) {
+  console.log(param); // 1 이 할당됨.
+  console.log(rest); // 2,3,4 가 배열로 묶여져서 할당됨.
+}
+
+func7(1, 2, 3, 4);
+
+// rest 매개변수는 함수의 매개변수의 마지막 위치에 선언되어야 함.
+// 아래의 코드는 컴파일 에러가 발생하게 됨.
+// function func8(...rest, param) {
+//     console.log(param); // 1 이 할당됨.
+//     console.log(rest); // 2,3,4 가 배열로 묶여져서 할당됨.
+//   }
