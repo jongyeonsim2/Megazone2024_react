@@ -671,7 +671,7 @@ console.log(arr.includes(3)); // 탐색하는 데이터가 존재하면, true
 console.log(arr.includes(9)); // 존재하지 않으면, false
 console.log(arr.includes("3")); // 자료형이 다르면, false
 
-console.log("--- 10. 탐색 메소드 - findIndex ---");
+console.log("--- 10. 탐색 메소드 - findIndex - 콜백 함수 ---");
 /**
  * 10. 탐색 메소드 - findIndex
  *     - 인수로 콜백 함수를 전달해야 함. => 판별 함수.
@@ -698,3 +698,85 @@ arr5 = [1, 3, 5, 6, 8];
 let index = arr5.findIndex(determine);
 
 console.log(index); // 3 반환 => index 3 인 요소는 6임. 짝수임.
+
+console.log("--- 10. 탐색 메소드 - findIndex - 화살표 표현식 ---");
+index = arr5.findIndex((item) => (item % 2 === 0 ? true : false));
+
+console.log(index);
+
+console.log("--- 10. 탐색 메소드 - findIndex - 객체 탐색 ---");
+
+arr5 = [
+  { name: "홍길동", age: 20 }, // idx : 0
+  { name: "이종원", age: 21 }, // idx : 1
+  { name: "신다민", age: 22 }, // idx : 2
+  { name: "김효빈", age: 23 }, // idx : 3
+];
+
+index = arr5.findIndex((item) => item.name === "신다민");
+
+console.log(index); // 2 가 반환됨. 탐색 성공함.
+
+console.log("--- 11. 탐색 메소드 - find- 객체 탐색 ---");
+/**
+ * 11. 탐색 메소드 - find
+ *      find 는 findIndex 와 달리 탐색해서 찾으면,
+ *      인덱스 정보가 아닌 요소 정보를 반환함.
+ */
+
+let element = arr5.find((item) => item.name === "신다민");
+
+console.log(element);
+
+console.log("--- 12. 탐색 메소드 - filter - 객체 탐색 ---");
+/**
+ * 12. 탐색 메소드 - filter
+ *      배열에서 조건을 만족하는 요소만 모아 새로운 배열로 반환.
+ */
+
+arr5 = [
+  { name: "홍길동", hobby: "당구" }, // idx : 0
+  { name: "이종원", hobby: "영화" }, // idx : 1
+  { name: "신다민", hobby: "당구" }, // idx : 2
+  { name: "김효빈", hobby: "노래" }, // idx : 3
+];
+
+let finterArr = arr5.filter((item) => item.hobby === "당구");
+
+console.log(finterArr);
+
+console.log("--- 13. 변형 메소드 - map -");
+/**
+ * 13. 변형 메소드 - map
+ *     배열을 변형하거나 요소를 재정렬.
+ *
+ *     - 콜백 메소드를 매개변수로 전달.
+ *     - item, index, array 가 제공됨.
+ */
+
+arr5 = [1, 2, 3, 4];
+let newArr = arr5.map((item) => item * 3);
+
+console.log(newArr);
+
+console.log("--- 13. 변형 메소드 - map - 객체 배열");
+
+arr5 = [
+  { name: "홍길동", hobby: "당구" }, // idx : 0
+  { name: "이종원", hobby: "영화" }, // idx : 1
+  { name: "신다민", hobby: "당구" }, // idx : 2
+  { name: "김효빈", hobby: "노래" }, // idx : 3
+];
+
+newArr = arr5.map((item) => item.name);
+
+console.log(newArr);
+
+console.log("--- 14. 변형 메소드 - 정렬 - sort -");
+/**
+ * 14. 변형 메소드 - 정렬 - sort
+ *     배열의 요소를 재정렬.
+ *
+ *     - 콜백 메소드를 매개변수로 전달. 비교함수.(오름차순, 내림차순)
+ *     - item, index, array 가 제공됨.
+ */
