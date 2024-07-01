@@ -617,7 +617,7 @@ function cb(item, idx) {
 
 const arr4 = [1, 2, 3, 4, 5];
 
-arr.forEach(cb);
+arr4.forEach(cb);
 
 // 위의 콜백 메소드를 화살표 표현식으로 변경.
 console.log("--- foreach, 화살표 표현식 ---");
@@ -625,12 +625,76 @@ arr4.forEach((item, idx) => {
   console.log(`${idx}번째 요소 : ${item}`);
 });
 
+console.log("--- 8. 탐색 메소드 - indexOf ---");
 /**
- * 8. 탐색 메소드
+ * 8. 탐색 메소드 - indexOf
  *      배열에서 특정 조건을 만족하는 요소를 찾아내는 메소드
  *
  *      arr.indexOf(item, fromIndex);
  *
- *      - item : 배열에서 찾으려는 요소값.
+ *      - item : 배열에서 찾으려는 요소값. => 검색 조건
  *      - fromIndex : 탐색을 시작할 위치.
  */
+
+let arr5 = [1, 3, 5, 7, 1];
+
+// 검색이 되면, 검색 위치값을 반환하면서, 탐색을 중지함.
+console.log(arr5.indexOf(1, 0)); // 1 : 검색 조건, 0 : 검색 시작 위치
+
+arr5 = [2, 3, 5, 7, 1];
+console.log(arr5.indexOf(1, 0));
+
+arr5 = [1, 3, 5, 7, 1];
+
+console.log(arr5.indexOf(1, -1)); // -1 : 배열의 끝에서 탐색을 시작.
+
+// 탐색 결과가 없는 경우. => -1 을 반환.
+console.log(arr5.indexOf(9));
+
+// 탐색 조건과 배열의 요소의 데이터 타입이 다른 경우. => -1 을 반환.
+// 비교 연산자(===) 로 요소를 비교함으로, 자료형이 다르면, 다른 값으로 평가.
+console.log(arr5.indexOf("3"));
+
+// 배열에서 객체를 탐색하는 경우. => -1 을 반환.
+// indexOf 메소드로는 객체 자료형의 값을 탐색할 수 없음.
+// => findIndex, find 메소드를 사용해야 함.
+arr5 = [{ name: "홍길동" }, 1, 2, 3];
+console.log(arr5.indexOf({ name: "홍길동" }));
+
+console.log("--- 9. 탐색 메소드 - includes ---");
+// 9. 탐색 메소드 - includes
+//   배열에 틀정 요소가 있는 판별.
+
+arr = [1, 3, 5, 7, 1];
+
+console.log(arr.includes(3)); // 탐색하는 데이터가 존재하면, true
+console.log(arr.includes(9)); // 존재하지 않으면, false
+console.log(arr.includes("3")); // 자료형이 다르면, false
+
+console.log("--- 10. 탐색 메소드 - findIndex ---");
+/**
+ * 10. 탐색 메소드 - findIndex
+ *     - 인수로 콜백 함수를 전달해야 함. => 판별 함수.
+ *       true : 판별 함수의 조건식 만족하는 경우.
+ *       false : 판별 함수의 조건식을 만족하지 않는 경우.
+ *     - 판별 함수를 만족하는 첫 번째 요소의 인덱스 번호를 반환하고,
+ *       없으면, -1을 반환.
+ *     - item : 현재 요소
+ *     - index : 현재 인덱스
+ *     - array : 탐색 대상 배열
+ */
+
+// findIndex 의 콜백 메소드를 정의 - 배열 요소중에서 짝수를 탐색
+function determine(item, idx, arr) {
+  if (item % 2 === 0) {
+    // 조건식 : 짝수여부 확인.
+    return true;
+  } else {
+    return false;
+  }
+}
+
+arr5 = [1, 3, 5, 6, 8];
+let index = arr5.findIndex(determine);
+
+console.log(index); // 3 반환 => index 3 인 요소는 6임. 짝수임.
