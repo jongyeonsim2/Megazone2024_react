@@ -325,3 +325,97 @@ arr = [1, 2, 3, 4];
 for (let idx = 0; idx < 4; idx++) {
   console.log(arr[idx]);
 }
+
+// 2. 배열 객체의 프로퍼티 활용
+let len = arr.length;
+
+console.log(len);
+
+for (let idx = 0; idx < arr.length; idx++) {
+  console.log(arr[idx]);
+}
+
+// 3. for...of 사용
+console.log("--- for...of 사용 ---");
+for (let item of arr) {
+  console.log(item);
+}
+
+// 객체와 반복문
+console.log("--- 객체와 반복문 ---");
+
+// 1. 프로퍼티의 key 취득
+person = {
+  name: "홍길동",
+  age: 25,
+  location: "부산",
+};
+
+const keyArr = Object.keys(person);
+
+console.log(keyArr);
+
+// 2. 키를 활용한 프로퍼티 value 탐색
+for (let key of keyArr) {
+  let value = person[key];
+  console.log(value);
+}
+
+// 3. Object.values 를 활용한 프로퍼티 value 탐색
+const valueArr = Object.values(person);
+
+console.log(valueArr);
+
+// 4. for...in 을 이용한 순회.
+for (let key in person) {
+  const value = person[key];
+  console.log(key, value);
+}
+
+// 구조 분해 할당 : 배열이나 객체에서 요소를 해체해 개별 변수에 그 값을
+//              담는는 것.
+console.log("--- 배열 구조 분해 할당 ---");
+
+arr = [1, 2, 3];
+
+let one = arr[0];
+let two = arr[1];
+let three = arr[2];
+
+let [one2, two2, three2] = arr; // 구조 분해 할당.
+console.log(one2, two2, three2);
+
+let arr2 = [1, 2, 3];
+let [one3, two3] = arr2; // 요소가 3개인데, 구조 분해 할당은 2개로.
+
+console.log(one3, two3);
+
+arr2 = [1, 2];
+let [one4, two4, three4] = arr2;
+
+console.log(one4, two4, three4); //three4 는 undefined 로 할당됨.
+
+console.log("--- 객체 구조 분해 할당 ---");
+
+person = {
+  name4: "홍길동",
+  age4: 25,
+  location4: "부산",
+};
+
+// 객체의 분해 할당의 기준은 객체의 key 를 기준으로 수행됨.
+// 배열의 분해 할당과의 차이점.
+let { name4, age4, location4 } = person;
+console.log(name4, age4, location4);
+
+person = {
+  name: "홍길동",
+  age: 25,
+  location: "부산",
+};
+
+// 객체의 분해 할당이 객체의 key 기준으로 수행되지 않음.
+// 따라서, 모두 undefined 값으로 할당됨.
+// 배열의 분해 할당과의 차이점.
+let { name5, age5, location5 } = person;
+console.log(name5, age5, location5);
