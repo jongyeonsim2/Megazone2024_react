@@ -780,3 +780,49 @@ console.log("--- 14. 변형 메소드 - 정렬 - sort -");
  *     - 콜백 메소드를 매개변수로 전달. 비교함수.(오름차순, 내림차순)
  *     - item, index, array 가 제공됨.
  */
+
+arr5 = ["b", "a", "c"]; // 문자 형태의 요소
+
+arr5.sort(); // 오름차순 정렬
+
+console.log(arr5);
+
+arr5 = [10, 5, 3]; // 숫자 형태의 요소
+
+arr5.sort();
+
+console.log(arr5);
+
+// 문자 형태는 정렬, 숫자 형태는 정렬 안되고 있음. => 비교 함수를 사용해야 함.
+
+// 비교 함수 선언 - 오름 차순
+function compare(a, b) {
+  if (a > b) {
+    return 1;
+  } else if (a < b) {
+    return -1;
+  } else {
+    return 0;
+  }
+}
+
+arr5 = [10, 5, 3];
+
+arr5.sort(compare);
+
+console.log(arr5); // 결과 오름차순으로 정렬됨.
+
+// 비교 함수 선언 - 내림 차순
+function compare2(a, b) {
+  if (a > b) {
+    return -1;
+  } else if (a < b) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
+arr5.sort(compare2);
+
+console.log(arr5);
