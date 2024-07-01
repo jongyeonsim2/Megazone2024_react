@@ -627,5 +627,10 @@ arr4.forEach((item, idx) => {
 
 /**
  * 8. 탐색 메소드
+ *      배열에서 특정 조건을 만족하는 요소를 찾아내는 메소드
  *
+ *      arr.indexOf(item, fromIndex);
+ *
+ *      - item : 배열에서 찾으려는 요소값.
+ *      - fromIndex : 탐색을 시작할 위치.
  */
