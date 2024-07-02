@@ -108,6 +108,73 @@ function double(num, callback) {
 // double 함수에서 처리된 결과값을 외부에서 사용할 수 있다는
 // 것이 중요함. => callback 메소드를 활용해서 비동기 처리
 // => 비동기 처리에서의 결과값을 반환 받아서 사용할 수 있음.
-double(10, (result) => {
-  console.log("result :" + result);
-});
+// double(10, (result) => {
+//   console.log("result :" + result);
+// });
+
+// 2. promise 객체를 활용한 비동기 처리
+console.log("-- promise 객체를 활용한 비동기 처리 --");
+
+/**
+ * Promise 의 매개변수 => 함수 => 실행 함수
+ *    실행함수 : 비동기 작업을 수행하는 함수.
+ *
+ *    resolve : 비동기 작업의 상태를 성공으로 변경하는 함수.
+ *       then() 메소드와 연결( 실행 ).
+ *    reject : 비동기 작업의 상태를 실패로 변경하는 함수.
+ *       catch() 메소드와 연결( 실행 ).
+ */
+
+// const promise = new Promise(function (resolve, reject) {
+//   setTimeout(() => {
+//     resolve("성공");
+//     //resolve 가 호출되면서,
+//     // promise.then() 을 호출하면, "성공" 을
+//     // 매개변수로 전달.
+//   }, 1000);
+// });
+
+// promise.then(function (res) {
+//   console.log(res);
+// });
+
+//promise.then((res) => console.log(res));
+
+// const promiseReject = new Promise(function (resolve, reject) {
+//   setTimeout(() => {
+//     reject("실패");
+//     //reject 가 호출되면서,
+//     // promise.catch() 을 호출하면, "실패" 을
+//     // 매개변수로 전달.
+//   }, 1000);
+// });
+
+//promiseReject.catch((err) => console.log(err));
+
+/**
+ * callback 지옥 : 콜백이 계속 반복되는 상태.
+ *
+ * 예를 들어서, 서버에서 요청한 자료를 수신해서 처리하는
+ * 로직이라면, 정말 복잡해질 가능성이 높음.
+ */
+function printLetter() {
+  console.log("A");
+
+  setTimeout(() => {
+    console.log("B");
+
+    setTimeout(() => {
+      console.log("C");
+
+      setTimeout(() => {
+        console.log("D");
+
+        setTimeout(() => {
+          console.log("처리 완료!!");
+        }, 1000);
+      }, 1000);
+    }, 1000);
+  }, 1000);
+}
+
+printLetter();
