@@ -235,6 +235,8 @@ pizzaOrder
   .then( (result) => step1(result) )
   .then( (result) => step2(result) )
   .then( (result) => step3(result) )
-  .then() => ( console.log("피자 준비 완료") )
+  .then(() => {
+    console.log("피자 준비 완료");
+  });
  * 
  */
