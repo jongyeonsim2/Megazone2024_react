@@ -177,4 +177,21 @@ function printLetter() {
   }, 1000);
 }
 
-printLetter();
+//printLetter();
+
+// Promise 를 활용한 주문 프로그램을
+// 비동기 프로그램으로 구현
+
+// 성공, 실패 flag 정보
+// true : 성공, false : 실패
+let orderPizza = false;
+
+const pizzaOrder = new Promise((resolve, reject) => {
+  if (orderPizza) resolve("피자 주문 성공");
+  else reject("피자 주문 실패");
+});
+
+pizzaOrder
+  .then((res) => console.log(res))
+  .catch((err) => console.log(err))
+  .finally(() => console.log("처리 완료"));
