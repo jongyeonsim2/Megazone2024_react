@@ -73,12 +73,41 @@ console.log("--- 비동기 처리 실습 ---");
 // 3초가 지나서, 처리 시간이 긴 "1번" 이 실행됨.
 // console.log("2번!");
 
-function orderCoffee(coffee, time) {
+// function orderCoffee(coffee, time) {
+//   setTimeout(() => {
+//     console.log(`${coffee} 제조 완료`);
+//   }, time);
+// }
+
+// orderCoffee("스윗 커피", 4000); // 3번 실행
+// orderCoffee("레몬 차", 2000); // 1번 실행
+// orderCoffee("아이스 커피", 3000); // 2번 실행
+
+// setTimeout 메소드를 활용한 비동기 처리
+// function double(num) {
+//   return setTimeout(() => {
+//     const doubleNum = num * 2;
+//     //console.log(doubleNum);
+//     return doubleNum;
+//   }, 1000);
+// }
+
+// const res = double(10);
+
+// console.log(res);
+
+// callback 메소드를 활용한 비동기 처리
+function double(num, callback) {
   setTimeout(() => {
-    console.log(`${coffee} 제조 완료`);
-  }, time);
+    const doubleNum = num * 2;
+    //console.log(doubleNum);
+    callback(doubleNum);
+  }, 1000);
 }
 
-orderCoffee("스윗 커피", 4000); // 3번 실행
-orderCoffee("레몬 차", 2000); // 1번 실행
-orderCoffee("아이스 커피", 3000); // 2번 실행
+// double 함수에서 처리된 결과값을 외부에서 사용할 수 있다는
+// 것이 중요함. => callback 메소드를 활용해서 비동기 처리
+// => 비동기 처리에서의 결과값을 반환 받아서 사용할 수 있음.
+double(10, (result) => {
+  console.log("result :" + result);
+});
