@@ -184,17 +184,17 @@ function printLetter() {
 
 // 성공, 실패 flag 정보
 // true : 성공, false : 실패
-let orderPizza = false;
+// let orderPizza = false;
 
-const pizzaOrder = new Promise((resolve, reject) => {
-  if (orderPizza) resolve("피자 주문 성공");
-  else reject("피자 주문 실패");
-});
+// const pizzaOrder = new Promise((resolve, reject) => {
+//   if (orderPizza) resolve("피자 주문 성공");
+//   else reject("피자 주문 실패");
+// });
 
-pizzaOrder
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err))
-  .finally(() => console.log("처리 완료"));
+// pizzaOrder
+//   .then((res) => console.log(res))
+//   .catch((err) => console.log(err))
+//   .finally(() => console.log("처리 완료"));
 
 /**
  * 1. 커피 주문 프로그램 구현
@@ -218,6 +218,36 @@ pizzaOrder
  * 
  */
 
+const coffeeOrder = new Promise((resolve, reject) => {
+  let coffee = "ICE 커피";
+
+  // null, 공백 체크 => 커피 주문 가능 여부 확인
+  if (coffee != null && coffee != "") {
+    console.log(`${coffee} 주문 접수`);
+
+    setTimeout(() => {
+      resolve(coffee);
+    }, 3000);
+  } else {
+    // 주문 접수 취소
+    reject("커피 주문 취소");
+  }
+});
+
+// 커피 준비 완료
+function orderSuccess(result) {
+  console.log(`${result} 준비 완료`);
+}
+
+// 주문 취소 및 실패
+function orderCancle(err) {
+  console.log(err);
+}
+
+// 커피 주문 promise와 orderSuccess(), orderCancle()
+// 서로 연결 작업
+coffeeOrder.then(orderSuccess).catch(orderCancle);
+
 /**
  * 2.  피자를 만드는 과정을 비동기로 처리
  *    피자 주문
@@ -238,5 +268,63 @@ pizzaOrder
   .then(() => {
     console.log("피자 준비 완료");
   });
+
+  step1, step2, step3 는 반드시 promise 객체를 반환해야만,
+  then 메소드 체이닝이 가능해짐.
  * 
  */
+
+//1. 시작 promise 구현.
+const pizza = () => {
+  return new Promise((resolve, reject) => {
+    resolve("피자 주문 시작");
+  });
+};
+
+//2. 각 조리단계별로 메소드 구현. step1 ~ step3 의 이름으로 정의.
+//      각 조리별 메소드는 반드시 promise 객체를 반환해야 함.
+// step1, 피자 도우 준비, 2초, promise 객체 반환
+const step1 = (msg) => {
+  console.log(msg);
+
+  // promise 객체 생성 및 반환
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("피자 도우 준비");
+    }, 2000);
+  });
+};
+
+// step2, 토핑 완료, 1초, promise 객체 반환
+const step2 = (msg) => {
+  console.log(msg);
+
+  // promise 객체 생성 및 반환
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("토핑 완료");
+    }, 1000);
+  });
+};
+
+// step3, 굽기 완료, 2초, promise 객체 반환
+const step3 = (msg) => {
+  console.log(msg);
+
+  // promise 객체 생성 및 반환
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("굽기 완료");
+    }, 2000);
+  });
+};
+
+//3. 시작 promise 와 각 조리단계별 메소드를 .then() 메소드로 연결.
+pizza()
+  .then((result) => step1(result))
+  .then((result) => step2(result))
+  .then((result) => step3(result))
+  .then((result) => console.log(result))
+  .then(() => {
+    console.log("피자 준비 완료");
+  });
