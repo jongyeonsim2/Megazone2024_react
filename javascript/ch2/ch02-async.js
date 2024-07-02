@@ -195,3 +195,46 @@ pizzaOrder
   .then((res) => console.log(res))
   .catch((err) => console.log(err))
   .finally(() => console.log("처리 완료"));
+
+/**
+ * 1. 커피 주문 프로그램 구현
+ *    - promise 사용
+ *    - 주문할 커피는 변수로 설정.
+ * 
+ *    a. 주문 접수
+ *       null 또는 공백 체크
+ *       주문 접수 메세지 출력
+ *       
+ *    b. 준비 완료
+ *       3초가 걸림.
+ *       resolve(전용 메소드로 구현)
+ *       
+ *    c. 커피 주문 취소
+ *       reject(전용 메소드로 구현)
+ * 
+ coffeeOrder
+ .then(전용 메소드로 전달)
+ .catch(전용 메소드로 전달)
+ * 
+ */
+
+/**
+ * 2.  피자를 만드는 과정을 비동기로 처리
+ *    피자 주문
+ *    ========== 조리 ==========
+ *    피자 도우 준비(2초) -> step 1
+ *    토핑 완료(1초)      -> step 2
+ *    굽기 완료(2초)      -> step 3
+ *    =========== 조리 완료 ====
+ *    피자 준비 완료
+ * 
+ *    then() 메소드 체이닝으로 비동기 구현.
+ *    디자인 패턴의 빌더 패턴과 비슷한 형태.
+ * 
+ pizzaOrder()
+  .then( (result) => step1(result) )
+  .then( (result) => step2(result) )
+  .then( (result) => step3(result) )
+  .then() => ( console.log("피자 준비 완료") )
+ * 
+ */
