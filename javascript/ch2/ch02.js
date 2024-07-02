@@ -979,6 +979,37 @@ console.log(dateC); // Sep : 9월
 //    날짜로 해당 객체를 조회 => 검색 결과가 배열로 반환
 // 배열에 제공되는 메소드 => 탐색 메소드 => filter() 메소드를 활용.
 // filter() 메소드의 매개변수로 callback 메소드를 전달. => 검색 조건 구현.
+
+// 첫 번째 매개변수 : 검색날짜조건
+// 두 번째 매개변수 : date 정보가 프로퍼티로 있는 객체 배열
+function filterThisMonth(searchConditionDate, dateArray) {
+  // 매개변수에서 년, 월 정보 취득
+  const year = searchConditionDate.getFullYear();
+  const mont = searchConditionDate.getMonth();
+
+  // 시작일 종료일 날짜 생성 : 검색 범위
+  const srartDate = new Date(year, month, 1, 0, 0, 0, 0);
+  const endDate = new Date(year, month + 1, 0, 23, 59, 59);
+
+  // 두 번째 매개변수의 filter 메소드를 사용.
+  // 검색 범위의 값은 timestamp로 사용.
+  const resultArray = dateArray.filter(
+    (item) =>
+      srartDate.getTime <= item.getTime() && item.getTime <= endDate.getTime()
+  );
+
+  // 검색 결과 배열 반환
+  return resultArray;
+}
+
+// 2000. oct. 01. 00:00:00
+const srartDate = new Date(2000, 9, 1, 0, 0, 0, 0);
+console.log("srartDate : " + srartDate);
+
+// 2000. oct. 31. 23:59:59
+const endDate = new Date(2000, 9 + 1, 0, 23, 59, 59);
+console.log("endDate : " + endDate);
+
 const dateArray = [
   new Date("2000-10-1"), // 검색 결과 대상
   new Date("2000-10-31"), // 검색 결과 대상
