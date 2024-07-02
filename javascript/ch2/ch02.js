@@ -870,3 +870,121 @@ let result = arr5.reduce((acc, item) => acc + item, 0);
  */
 
 console.log(result);
+
+/**
+ * Date 객체와 날짜
+ */
+
+// Date 객체 생성
+let date = new Date(); //생성자
+
+console.log(date);
+
+// 협정 세계시 : 1970.1.1.0:0:0 기준 => UTC + 0
+
+date = new Date(0); // UTC + 0 로 날짜 객체 생성
+console.log(date); // 한국 표준시 : 기준시간보다 9시간이 이르다.
+
+// 타임 스탬프를 사용한 Date 객체 생성
+// 타임 스탬프 : UTC+0 을 기준으로 지난 시간을 밀리초로 환산한 값.
+
+date = new Date(24 * 3600 * 1000);
+console.log(date);
+
+// 문자열로 Date 객체 생성
+let date1 = new Date("2000-10-20/00:00:00");
+let date2 = new Date("2000.10.20/00:00:00");
+let date3 = new Date("2000/10/20/00:00:00");
+let date4 = new Date("2000 10 20/00:00:00");
+
+console.log("date1 : " + date1);
+console.log("date2 : " + date2);
+console.log("date3 : " + date3);
+console.log("date4 : " + date4);
+
+// 숫자로 Date 객체 생성
+// 년, 월, 일, 시, 분, 초, 밀리초 순서로 매개변수를 설정.
+// 월의 범위 : 0(1월) ~ 11(12월)
+let date5 = new Date(2024, 6, 2, 0, 0, 0, 0);
+console.log("date5 : " + date5);
+
+// 숫자와 타임스탬프를 이용한 Date 객체 생성
+date5 = new Date(2024, 6, 2);
+let timestamp = date5.getTime();
+console.log("timestamp : " + timestamp);
+
+let dateClone = new Date(timestamp);
+console.log("dateClone : " + dateClone);
+
+// Date 객체에서 제공되는 메소드 : getter
+// 1. getFullYear : 네 자리수의 연도를 반환
+console.log("getFullYear :" + dateClone.getFullYear());
+
+// 2. getMonth : 월을 반환. 0 ~ 11 범위.
+console.log("getMonth :" + dateClone.getMonth());
+
+// 3. getDate : 일을 반환.
+console.log("getDate :" + dateClone.getDate());
+
+// 4. getDay : 요일을 반환. 0(일) ~ 6(토) 범위.
+console.log("getDay :" + dateClone.getDay());
+
+// 5. getHours, getMinutes, getSeconds, getMilliseconds
+
+// Date 객체에서 제공되는 메소드 : setter
+// 6. setFullYear : 연도 수정
+dateClone.setFullYear(2017);
+
+console.log(dateClone);
+
+// 7. setMonth : 월 수정
+dateClone.setMonth(4);
+console.log(dateClone);
+
+// 8. setHours, setMinutes, setSeconds
+
+// Date 객체에서 제공되는 메소드 : 출력( 문자열로 변환 ), toString()
+console.log(dateClone.toString()); // 날짜, 시간정보
+console.log(dateClone.toDateString()); // 날짜
+console.log(dateClone.toLocaleString()); // 년월일 순서의 날짜, 시간정보
+console.log(dateClone.toLocaleDateString()); // 년월일 순서의 날짜
+
+// Date 객체 응용하기 - 중요 - 기능을 구현해야 함.
+// 1. n 월 단위로 이동
+function moveMonth(date, monveMonth) {
+  // 매개변수 date 객체의 월 정보 취득
+  const curTimestamp = date.getTime();
+  const curMonth = date.getMonth();
+
+  const resultDate = new Date(curTimestamp);
+
+  // 취득한 월 정보에 monveMonth 를 더함.
+  // 더한 월을 setter를 이용해서 설정.
+  resultDate.setMonth(curMonth + monveMonth);
+
+  return resultDate;
+}
+
+const dateA = new Date("2000-10-10"); //현재날짜
+console.log(dateA); // Oct : 10월
+
+const dateB = moveMonth(dateA, 1);
+console.log(dateB); // Nov : 11월
+
+const dateC = moveMonth(dateA, -1);
+console.log(dateC); // Sep : 9월
+
+// 더 중요.
+// 2. 날짜가 프로퍼티로 있는 객체 배열에서,
+//    날짜로 해당 객체를 조회 => 검색 결과가 배열로 반환
+// 배열에 제공되는 메소드 => 탐색 메소드 => filter() 메소드를 활용.
+// filter() 메소드의 매개변수로 callback 메소드를 전달. => 검색 조건 구현.
+const dateArray = [
+  new Date("2000-10-1"), // 검색 결과 대상
+  new Date("2000-10-31"), // 검색 결과 대상
+  new Date("2000-11-1"),
+  new Date("2000-9-30"),
+  new Date("1900-10-11"),
+];
+
+const today = new Date("2000-10-10/00:00:00");
