@@ -985,7 +985,7 @@ console.log(dateC); // Sep : 9월
 function filterThisMonth(searchConditionDate, dateArray) {
   // 매개변수에서 년, 월 정보 취득
   const year = searchConditionDate.getFullYear();
-  const mont = searchConditionDate.getMonth();
+  const month = searchConditionDate.getMonth();
 
   // 시작일 종료일 날짜 생성 : 검색 범위
   const srartDate = new Date(year, month, 1, 0, 0, 0, 0);
@@ -995,7 +995,8 @@ function filterThisMonth(searchConditionDate, dateArray) {
   // 검색 범위의 값은 timestamp로 사용.
   const resultArray = dateArray.filter(
     (item) =>
-      srartDate.getTime <= item.getTime() && item.getTime <= endDate.getTime()
+      srartDate.getTime() <= item.getTime() &&
+      item.getTime() <= endDate.getTime()
   );
 
   // 검색 결과 배열 반환
@@ -1019,3 +1020,7 @@ const dateArray = [
 ];
 
 const today = new Date("2000-10-10/00:00:00");
+
+const filteredArray = filterThisMonth(today, dateArray);
+
+console.log("filteredArray : " + filteredArray);
