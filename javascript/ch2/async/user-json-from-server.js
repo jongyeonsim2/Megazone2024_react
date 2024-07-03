@@ -2,7 +2,7 @@
  * 1. 대량의 데이터를 서버에 요청을 가정.
  *
  * 2. 서버와 통신시 fetch API 사용.( promise 반환되기 때문 )
- *   서버 요청 주소는 아래의 주소를 사용.
+ *    서버 요청 주소는 아래의 주소를 사용.
  *    https://jsonplaceholder.typicode.com/users
  *
  * 3. fetch API 실행시 await 예약어 사용.
