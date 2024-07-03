@@ -14,11 +14,11 @@ const orderInfo = document.querySelector("#orderInfo");
 orderBtn.addEventListener(
   "click",
   () => {
-    // DOM에 노드(p tag) 추가
-    // text node 추가해서 도서 title 을 저장.
+    // DOM에 추가할 노드(p tag)를 생성
+    // text node 생성해서 도서 title 을 저장.
     // p tag와 text node 관계 설정
     // p tag 스타일 적용
-    // 부모 node 와 p tag 를 연결
+    // 부모 node(div tag) 와 p tag 를 연결
   },
-  { once: true }
+  { once: false }
 );
