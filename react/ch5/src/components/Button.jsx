@@ -13,8 +13,10 @@
 // props 는 객체참조변수임으로
 // 객체의 프로퍼티를 사용해서 구분 처리하고 있음.
 
+import { version } from "react";
+
 // const Button = (props) => {
-//   console.log(props);
+//   console.log(props.version);
 //   return (
 //     <button style={{ color: props.color }}>
 //       {props.text} - {props.color.toUpperCase()}
@@ -24,7 +26,7 @@
 
 // 객체 구조 분해 할당을 사용한 처리
 // 객체의 프로퍼티 명과 동일하게 매개변수로 정의.
-const Button = ({ text, color, children }) => {
+const Button = ({ text, color = "black", children }) => {
   return (
     <button style={{ color: color }}>
       {text} - {color.toUpperCase()}
@@ -36,8 +38,8 @@ const Button = ({ text, color, children }) => {
 // props.color.toUpperCase() => 오류 발생 해결 방법.
 // 아래의 코드를 추가한 후,
 // 브라우저에서 새로 고침(F5)해서 확인.
-Button.defaultProps = {
-  color: "black",
-};
+// Button.defaultProps = {
+//   color: "black",
+// };
 
 export default Button;
