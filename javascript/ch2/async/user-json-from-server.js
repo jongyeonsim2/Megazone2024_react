@@ -15,7 +15,34 @@
  */
 
 // 1. 통신부 구현
+async function commToServer() {
+  // fetch API 사용
+  // 서버와 통신시, 서버에서 언제 응답(요청한 결과, response)
+  // 이 빠를 수도 있고, 느릴 수 도 있음. => 비동기 처리
+  const response = await fetch("https://jsonplaceholder.typicode.com/users");
+
+  // response 결과가 JSON 포맷임. => 객체(리터럴 객체) 배열
+  // => 비동기 처리
+  const users = await response.json();
+
+  // 화면 출력 => 매개변수로 사용자 객체 전달
+  display(users);
+}
 
 // 2. 화면 출력부 구현
+function display(users) {
+  // 출력할 화면의 요소를 지정.
+  const result = document.querySelector("#result");
+
+  // html 코드 작성.
+  let htmlStr = "";
+
+  users.forEach((user) => {
+    htmlStr += `${user.name} - ${user.username} - ${user.email} <br>`;
+  });
+
+  result.innerHTML = htmlStr;
+}
 
 // 3. 1번의 함수를 호출
+commToServer();
