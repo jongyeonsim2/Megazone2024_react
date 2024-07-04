@@ -1,33 +1,14 @@
 import "./App.css";
-
-function Header() {
-  return (
-    <header>
-      <h1>header</h1>
-    </header>
-  );
-}
-
-function Main() {
-  return (
-    <main>
-      <h1>main</h1>
-    </main>
-  );
-}
-
-function Footer() {
-  return (
-    <footer>
-      <h1>footer</h1>
-    </footer>
-  );
-}
+import Header from "./components/Header";
+import Main from "./components/Main";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <>
-      <h1>반가웡~~~ 리액트~~~</h1>
+      <Header />
+      <Main />
+      <Footer />
     </>
   );
 }
