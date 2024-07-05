@@ -16,7 +16,10 @@ function App() {
     <>
       <Button text={"메일"} color={"red"} />
       <Button text={"카페"} />
-      <Button text={"블로그"}></Button>
+      <Button text={"블로그"}>
+        <div>자식요소</div>
+        <Header />
+      </Button>
       <Button {...buttonProps} />
     </>
   );
