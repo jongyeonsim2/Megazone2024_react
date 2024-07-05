@@ -11,9 +11,10 @@ import { useState } from "react";
  * 생각해야 될 부분( 유지보수를 위한 코드 작성 )
  * 1. state 로 회원 가입폼의 항목을 관리
  * 항목을 하나의 무언가로 관리하도록 하면....
+ *    => state 정보를 객체로 관리
  *
  * 2. 각 항목(tag)의 value 를 event handler 를 이용해서
- * 초기화
+ * 초기화 => 통합 이벤트 핸들러
  *
  * 비슷한 기능을 하는 event handler 를 통합할 수 있는
  * 방법은...
