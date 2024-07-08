@@ -37,7 +37,7 @@ import { useState, useRef } from "react";
  * 2. DOM 요소 직접 조작
  *    회원 등록시 이름 입력 항목에 사용자가 입력을 했는지 여부
  *
- *    - 입력 항목을 저장할 useRef 객체를 생성
+ *    - 입력 요소 항목을 저장할 useRef 객체를 생성
  *    - 해당 태그의 ref 속성에 생성된 useRef 객체를 등록( 관계 설정 )
  *      ref={useRef 객체 변수명}
  *
@@ -90,7 +90,7 @@ const RegisterUpgradeUseRef = () => {
 
   // 0 을 매개변수로 전달. => current 프로퍼티가 0 으로 초기화
   // 초기값으로 설정이 가능
-  //const refObj2 = useRef(0);
+  const refObj2 = useRef(0);
   //console.log(refObj2);
 
   // 프로퍼티 접근
@@ -101,6 +101,9 @@ const RegisterUpgradeUseRef = () => {
   // ================== useRef 활용 start ==================
   // 1. 입력 항목에 수정 횟수
   const countRef = useRef(0);
+
+  // 2. 입력 항목 요소 참조용 - 화면 요소 제어
+  const inputRef = useRef();
 
   // ================== useRef 활용 end ==================
 
@@ -144,6 +147,15 @@ const RegisterUpgradeUseRef = () => {
   };
   */
 
+  const onSubmit = () => {
+    if (input.name === "") {
+      // inputRef 에 저장된 input tag 의 DOM 요소를 출력
+      console.log(inputRef.current);
+      // 이름을 입력하는 항목의 DOM 요소에 포커스를 줌
+      inputRef.current.focus();
+    }
+  };
+
   return (
     <div>
       <button
@@ -156,6 +168,7 @@ const RegisterUpgradeUseRef = () => {
       </button>
       <div>
         <input
+          ref={inputRef}
           name="name"
           value={input.name}
           onChange={onChange}
@@ -185,6 +198,8 @@ const RegisterUpgradeUseRef = () => {
         <textarea name="bio" value={input.bio} onChange={onChange} />
         {input.bio}
       </div>
+
+      <button onClick={onSubmit}>저장</button>
     </div>
   );
 };
