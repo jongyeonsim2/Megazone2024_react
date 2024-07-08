@@ -77,30 +77,30 @@ const RegisterUpgradeUseRef = () => {
   // ================== 기본 사용법 start ==================
 
   // useRef() 의 리렌더링 확인용 로그
-  console.log(" useRef() 의 리렌더링 ");
+  //console.log(" useRef() 의 리렌더링 ");
   // 컴포넌트 내부에서 어떤 기능을 실행하는데,
   // 위의 로그가 출력이 되지 않으면 =>
   // 리렌더링이 수행되지 않음을 확인하게 됨
 
   // 새로운 레퍼런스 객체 생성.
-  const refObj = useRef();
+  //const refObj = useRef();
 
   // current 프로퍼티에 값을 담는 자바스크립트 객체.
-  console.log(refObj);
+  //console.log(refObj);
 
   // 0 을 매개변수로 전달. => current 프로퍼티가 0 으로 초기화
   // 초기값으로 설정이 가능
-  const refObj2 = useRef(0);
-  console.log(refObj2);
+  //const refObj2 = useRef(0);
+  //console.log(refObj2);
 
   // 프로퍼티 접근
-  console.log("refObj2.current : " + refObj2.current);
+  //console.log("refObj2.current : " + refObj2.current);
 
   // ================== 기본 사용법 end ==================
 
   // ================== useRef 활용 start ==================
   // 1. 입력 항목에 수정 횟수
-  const inputRef = useRef(0);
+  const countRef = useRef(0);
 
   // ================== useRef 활용 end ==================
 
@@ -113,7 +113,12 @@ const RegisterUpgradeUseRef = () => {
      * useRef()의 프로퍼티가 수정이 발생한 경우
      * state 처럼 컴포넌트의 리렌더링이 발행하는지 확인하는 것
      *
+     * console.log(" useRef() 의 리렌더링 "); 가
+     * console 에 출력이 되지 않는 것을 확인
      */
+
+    countRef.current++;
+    console.log(countRef.current);
 
     setInput({
       ...input,
