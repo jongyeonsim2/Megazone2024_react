@@ -57,12 +57,24 @@ const RegisterUpgradeUseRef = () => {
   });
 
   /***
+   * hook( 낚아채다 )
+   * useRef() 와 같은 기능을 시용하려면, class 로 만들어서
+   * 사용해야 함 => 코드 작성량이 너무 많아짐 => 함수로
+   * react 의 기능을 사용할 수 있도록 하면 좋겠다는 요구사항 발생
+   * => react hook
+   *
+   * 원래 클래스에서 사용할 수 있는 기능을 낚아채듯이 함수에서도
+   * 사용할 수 있게끔 함
+   *
+   *
    * 1. useRef() 기본 사용법
    * - 새로운 객체 생성
    * - 생성된 객체에 대해서 출력, 프로퍼티 확인
    * - 실제 리렌더링과 무관한지 확인( 가장 큰 특징 )
    *
    */
+
+  // ================== 기본 사용법 start ==================
 
   // useRef() 의 리렌더링 확인용 로그
   console.log(" useRef() 의 리렌더링 ");
@@ -84,26 +96,24 @@ const RegisterUpgradeUseRef = () => {
   // 프로퍼티 접근
   console.log("refObj2.current : " + refObj2.current);
 
-  const onChangeName = (e) => {
-    setInput({
-      ...input,
-      name: e.target.value,
-    });
-  };
+  // ================== 기본 사용법 end ==================
 
-  /***
-   * 통합 event handler
-   *
-   * e.target.name : 객체의 프로퍼티인 키를 나타냄
-   *   즉, 이벤트가 발생한 태그의 name 속성에 설정된
-   *   값이 들어옴
-   *
-   * 객체의 프로퍼티를 나타내는 방법
-   * [키값] => [e.target.name] => 객체의 프로퍼티로 사용
-   *
-   */
+  // ================== useRef 활용 start ==================
+  // 1. 입력 항목에 수정 횟수
+  const inputRef = useRef(0);
+
+  // ================== useRef 활용 end ==================
+
   const onChange = (e) => {
-    console.log(e.target.name + " : " + e.target.value);
+    //console.log(e.target.name + " : " + e.target.value);
+
+    /***
+     * useRef() 의한 리렌더링의 발생 여부 확인
+     *
+     * useRef()의 프로퍼티가 수정이 발생한 경우
+     * state 처럼 컴포넌트의 리렌더링이 발행하는지 확인하는 것
+     *
+     */
 
     setInput({
       ...input,
@@ -131,6 +141,14 @@ const RegisterUpgradeUseRef = () => {
 
   return (
     <div>
+      <button
+        onClick={() => {
+          refObj2.current++;
+          console.log(refObj2.current);
+        }}
+      >
+        useRef + 1
+      </button>
       <div>
         <input
           name="name"
