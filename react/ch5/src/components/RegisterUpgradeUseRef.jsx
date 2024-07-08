@@ -46,7 +46,13 @@ import { useState, useRef } from "react";
  *
  * 3. useRef 를 활용한 변수의 범위( 컴포넌트 내부, 외부 ) 설정
  *    VS 순수 javascript 변수
+ *
+ *    3.1 javascript 변수 ( 컴포넌트 내부의 지역 변수 )
+ *    3.2 useRef 를 활용한 변수 : 컴포넌트 내 ( 컴포넌트 재사용 측면 )
+ *    3.3 useRef 를 활용한 변수 : 컴포넌트 밖 ( 컴포넌트 재사용 측면 )
  */
+
+let count = 0;
 
 const RegisterUpgradeUseRef = () => {
   const [input, setInput] = useState({
@@ -107,6 +113,9 @@ const RegisterUpgradeUseRef = () => {
 
   // ================== useRef 활용 end ==================
 
+  // 3.1 javascript 변수 ( 컴포넌트 내부의 지역 변수 )
+  //let count = 0;
+
   const onChange = (e) => {
     //console.log(e.target.name + " : " + e.target.value);
 
@@ -120,8 +129,39 @@ const RegisterUpgradeUseRef = () => {
      * console 에 출력이 되지 않는 것을 확인
      */
 
-    countRef.current++;
-    console.log(countRef.current);
+    // 입력 항목의 수정 횟수 정보 확인용
+    //countRef.current++;
+    //console.log(countRef.current);
+
+    /***
+     * 3.1 javascript 변수 ( 컴포넌트 내부의 지역 변수 )
+     *
+     * a. 이름 입력 항목 수정
+     * b. onChange() 호출
+     * c. count++ 수행
+     * d. setInput() 호출 => 컴포넌트의 state 변경
+     *    자기가 관리하는 state 가 수정 =>
+     *      리렌더링 발생 => 컴포넌트 함수 호출. RegisterUpgradeUseRef() 호출
+     * e. count 가 다시 0 으로 초기화 됨
+     *
+     * 그래서, 항상 1이 출력되게 됨
+     *
+     * 따라서, useRef() 에 의해 생성된 변수는
+     * 컴포넌트가 리렌더링이 된다고 해소 다시 리셋이
+     * 되지 않음을 알 수 있음. countRef.current++;
+     * ( react 에서 이렇게 동작되도록 하고 있음 )
+     *
+     * 그렇다면, count 변수가 컴포넌트 외부에 있다면???
+     * 렌더링의 영향을 벗어날 수 있어서 마치
+     * useRef() 의 변수처럼 사용할 수 있지 않을까???
+     *
+     * 결론, 심각한 문제가 발생하게 됨
+     * ( 컴포넌트는 재사용의 의미가 있음.
+     *   경우에 따라서는  root app 동일한 컴포넌트를 두 번
+     *   사용할 수 있음 )
+     */
+    count++;
+    console.log(count);
 
     setInput({
       ...input,
@@ -147,10 +187,11 @@ const RegisterUpgradeUseRef = () => {
   };
   */
 
+  // 이름 입력 항목의 공백 존재 여부 확인.( 정상 입력 여부 확인용 )
   const onSubmit = () => {
     if (input.name === "") {
       // inputRef 에 저장된 input tag 의 DOM 요소를 출력
-      console.log(inputRef.current);
+      //console.log(inputRef.current);
       // 이름을 입력하는 항목의 DOM 요소에 포커스를 줌
       inputRef.current.focus();
     }

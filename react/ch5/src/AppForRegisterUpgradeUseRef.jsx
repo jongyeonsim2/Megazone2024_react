@@ -5,6 +5,7 @@ function AppForRegisterUpgradeUseRef() {
   return (
     <>
       <RegisterUpgradeUseRef />
+      <RegisterUpgradeUseRef />
     </>
   );
 }
