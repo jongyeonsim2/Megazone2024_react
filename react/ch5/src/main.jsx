@@ -5,8 +5,9 @@ import AppForState from "./AppForState.jsx";
 import AppForStateResult from "./AppForStateResult.jsx";
 import AppForRegister from "./AppForRegister.jsx";
 import AppForRegisterUpgrade from "./AppForRegisterUpgrade.jsx";
+import AppForRegisterUpgradeUseRef from "./AppForRegisterUpgradeUseRef.jsx";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <AppForRegisterUpgrade />
+  <AppForRegisterUpgradeUseRef />
 );
