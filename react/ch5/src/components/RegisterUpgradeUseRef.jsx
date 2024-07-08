@@ -27,12 +27,25 @@ import { useState, useRef } from "react";
  *   에 접근이 가능
  *   해당 요소를 조작이 가능( 포커스, 스타일 변경 등 )
  *
+ */
+
+/***
+ * useRef() 의 활용
  *
+ * 1. 입력 항목에 대해서 변경 횟수가 몇 번이었는지를 확인
  *
+ * 2. DOM 요소 직접 조작
+ *    회원 등록시 이름 입력 항목에 사용자가 입력을 했는지 여부
  *
+ *    - 입력 항목을 저장할 useRef 객체를 생성
+ *    - 해당 태그의 ref 속성에 생성된 useRef 객체를 등록( 관계 설정 )
+ *      ref={useRef 객체 변수명}
  *
+ *      input 태그가 렌더링하는 DOM 요소가 useRef 객체 변수에
+ *      레퍼런스 객체로 저장이 됨
  *
- *
+ * 3. useRef 를 활용한 변수의 범위( 컴포넌트 내부, 외부 ) 설정
+ *    VS 순수 javascript 변수
  */
 
 const RegisterUpgradeUseRef = () => {
@@ -60,7 +73,16 @@ const RegisterUpgradeUseRef = () => {
   // 새로운 레퍼런스 객체 생성.
   const refObj = useRef();
 
+  // current 프로퍼티에 값을 담는 자바스크립트 객체.
   console.log(refObj);
+
+  // 0 을 매개변수로 전달. => current 프로퍼티가 0 으로 초기화
+  // 초기값으로 설정이 가능
+  const refObj2 = useRef(0);
+  console.log(refObj2);
+
+  // 프로퍼티 접근
+  console.log("refObj2.current : " + refObj2.current);
 
   const onChangeName = (e) => {
     setInput({
