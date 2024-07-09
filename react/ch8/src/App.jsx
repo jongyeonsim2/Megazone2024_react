@@ -107,6 +107,7 @@ function App() {
    *      가능하기 때문임
    *
    */
+
   // update 함수
   const onUpdate = (targetId) => {
     // todos 값들 중에서
@@ -119,11 +120,28 @@ function App() {
     );
   };
 
+  // 5. D : Delete( 삭제 )
+  /***
+   * - 수정함수처럼 삭제 함수를 root app에서 만든 후
+   *   자식 component 에게 props 로 전달
+   *
+   * - 자식 컴포넌트에서 click envent handler 구현
+   *   부모 컴포넌트가 전달한 삭제 함수를 호출
+   *
+   * - 삭제
+   *   실제 삭제가 아니라, 논리 삭제
+   */
+
+  // 삭제 함수
+  const onDelete = (targetId) => {
+    setTodos(todos.filter((todo) => todo.id !== targetId));
+  };
+
   return (
     <div className="App">
       <Header />
       <Editor onCreate={onCreate} />
-      <List todos={todos} onUpdate={onUpdate} />
+      <List todos={todos} onUpdate={onUpdate} onDelete={onDelete} />
     </div>
   );
 }
