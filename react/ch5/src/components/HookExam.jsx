@@ -1,3 +1,6 @@
+//useState 라는 hook 를 import
+import { useState } from "react";
+
 /***
  *
  * - 2017 년도 이전의 React.js
@@ -39,3 +42,35 @@
  *   b. custom hook 구현이 가능
  *
  */
+
+/***
+ * hook 관련된 3가지 사항
+ *
+ * 1. hook 은 반드시 함수 컴포넌트 이거나 custom hook 내부에서만
+ *    호출 가능
+ *
+ * 2. 조건부에서 사용될 수 없다. 조건문이나 반복문 내부에서 호출
+ *    할 수 없음 => 오류 발생
+ *
+ * 3. custom hook 을 직접만들어서 사용 가능
+ *    작성 방법은 함수 작성시 함수명 앞에 접두어 use 를 붙이면 됨
+ *
+ *    좋은 활용 법
+ *    custom hook 을 통해 컴포넌트 내부에서 반복되는 부분을
+ *    hook 을 통해 반복 사용할 수 있도록 분리할 수 있음
+ *
+ *    그리고, custom hook 은 별도의 디렉토리에 hooks 이름의
+ *    폴더를 만들어서 관리하는것이 일반적임
+ *
+ */
+
+// 컴포넌트 함수
+const HookExam = () => {
+  return (
+    <div>
+      <div>HookExam</div>
+    </div>
+  );
+};
+
+export default HookExam;
