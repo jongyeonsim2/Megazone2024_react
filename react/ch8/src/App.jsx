@@ -62,15 +62,36 @@ function App() {
    *     app component 작성 => 함수로 작성 후 props 로 함수로 전달
    *   - 글번호 관리
    *     렌더링과 무관하게 내부적으로 과리해야하는 번호 => useRef hook 사용
-   *
-   *
    */
+
+  // 2. 렌더링
+  /***
+   * - root app 컴포넌트에서 관리하는 todo list 데이터를
+   *   List 컴포넌트(자식)로 props 전달
+   * - List 컴포넌트
+   *   todo list 데이터 요소를 TodoItem 컴포넌트에게
+   *   props 전달
+   * - TodoItem 컴포넌트
+   *   todo list 데이터 요소의 값을 html에 표시
+   *
+   * - 중요
+   *   - javascript 배열의 map 함수를 활용
+   *     콜백 함수(배열의 요소에 처리할 내용)를 작성
+   *   - TodoItem 컴포넌트의 input 에 오류 설정
+   *     type="checkbox" 이벤트 핸들러를 구현하지 않으면,
+   *     오류가 발생하는 것에 대한 처리
+   *   - 리스트 형태로 렌더링된 컴포넌트인 경우
+   *     서로를 구분하기 위해 key 가 필요함
+   *     prop 를 통해서 key 전달되록 구현해야 함
+   */
+
+  // 3. R : 검색
 
   return (
     <div className="App">
       <Header />
       <Editor onCreate={onCreate} />
-      <List />
+      <List todos={todos} />
     </div>
   );
 }
