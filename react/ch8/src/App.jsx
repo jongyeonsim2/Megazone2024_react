@@ -51,7 +51,7 @@ function App() {
     setTodos([newToDo, ...todos]);
   };
 
-  // 1. Create
+  // 1. C : Create( 등록 )
   /***
    * - Editor 컴포넌트의 "추가" 버튼 클릭시
    *   입력된 todo 정보를
@@ -85,13 +85,45 @@ function App() {
    *     prop 를 통해서 key 전달되록 구현해야 함
    */
 
-  // 3. R : 검색
+  // 3. R : Read( 검색 )
+  /***
+   * - onChange event handler
+   * - 검색 조건 문자열 -> 상태변수
+   * - 배열의 filter()s 는 콜백함수를 전달
+   *   콜백함수 : includes() 함수를 사용해서 검색 기능 구현
+   */
+
+  // 4. U : Update( 수정 )
+  /***
+   * - 대상 : check box => checked, unchecked
+   *          todo 프로퍼티의 isDone : true, flase
+   * - check box의 onChange event handler
+   * - todo 프로퍼티의 isDone 의 값을 수정하는 기능
+   *   함수로 구현해서 TodoItem(자식 컴포넌트) 에게 전달
+   *   => Root App 에서 관리하는 todo 정보의
+   *      isDone 프로퍼티로 자식 컴포넌트가 접근할 수
+   *      있기 때문임
+   *   => 중요한 것은 데이터의 흐름은 부모에서 자식으로만
+   *      가능하기 때문임
+   *
+   */
+  // update 함수
+  const onUpdate = (targetId) => {
+    // todos 값들 중에서
+    // id 값이 일치하는 todo 에 대해서
+    // isDone 을 변경
+    setTodos(
+      todos.map((todo) =>
+        todo.id === targetId ? { ...todo, isDone: !todo.isDone } : todo
+      )
+    );
+  };
 
   return (
     <div className="App">
       <Header />
       <Editor onCreate={onCreate} />
-      <List todos={todos} />
+      <List todos={todos} onUpdate={onUpdate} />
     </div>
   );
 }
