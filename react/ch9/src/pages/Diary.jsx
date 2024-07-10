@@ -1,5 +1,10 @@
+import { useParams } from "react-router-dom";
+
 const Diary = () => {
-  return <div>Diary</div>;
+  const params = useParams();
+  console.log(params);
+
+  return <div>{params.id} 일자의 Diary</div>;
 };
 
 export default Diary;

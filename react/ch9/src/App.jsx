@@ -28,6 +28,12 @@ import NotFound from "./pages/NotFound";
  *    Link, useNavigate 를 활용
  *
  * 4. 동적 Routing
+ *    기본 URL + "라우팅 정보(쿼리 스트링)"
+ *    "http://localhost:5173" + "라우팅 정보"
+ *
+ *    쿼리 스트링
+ *    - /diary/10
+ *      10 일에 대한 상세 일기에 접속
  */
 
 function App() {
@@ -48,7 +54,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/new" element={<New />} />
-        <Route path="/diary" element={<Diary />} />
+        <Route path="/diary/:id" element={<Diary />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
