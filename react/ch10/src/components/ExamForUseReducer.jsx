@@ -24,6 +24,8 @@ function reducer(state, action) {
   switch (action.type) {
     case "increase":
       return state + action.data;
+    case "minus":
+      return state - action.data;
     default:
       return state;
   }
@@ -75,11 +77,18 @@ const ExamForUseReducer = () => {
     });
   };
 
+  const onClickMinus = () => {
+    dispatch({
+      type: "minus",
+      data: 1,
+    });
+  };
+
   return (
     <div>
       <h1>{state}</h1>
       <button onClick={onClickPlus}>+</button>
-      <button>-</button>
+      <button onClick={onClickMinus}>-</button>
     </div>
   );
 };
