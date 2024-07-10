@@ -168,7 +168,7 @@ function App() {
       <h1>Simple Counter</h1>
       <section>
         <Viewer count={count} />
-        {<Even />}
+        {count % 2 === 0 ? <Even /> : null}
       </section>
       <section>
         <Controller onClickButton={onClickButton} />

@@ -24,7 +24,7 @@ const Controller = ({ onClickButton }) => {
       </button>
       <button
         onClick={() => {
-          onClickButton(1);
+          onClickButton(100);
         }}
       >
         +100
@@ -38,7 +38,7 @@ const Controller = ({ onClickButton }) => {
       </button>
       <button
         onClick={() => {
-          onClickButton(100);
+          onClickButton(1);
         }}
       >
         +1
