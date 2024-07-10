@@ -46,6 +46,12 @@ function reducer(state, action) {
   switch (action.type) {
     case "create":
       return [action.data, ...state];
+    case "update":
+      return state.map((item) =>
+        item.id === action.targetId ? { ...item, isDone: !item.isDone } : item
+      );
+    case "delete":
+      return state.filter((item) => item.id !== action.targetId);
     default:
       return state;
   }
@@ -77,7 +83,7 @@ function App() {
     //   date: new Date().getTime(),
     // };
 
-    setTodos([newToDo, ...todos]);
+    //setTodos([newToDo, ...todos]);
   };
 
   // update 함수
@@ -85,16 +91,24 @@ function App() {
     // todos 값들 중에서
     // id 값이 일치하는 todo 에 대해서
     // isDone 을 변경
-    setTodos(
-      todos.map((todo) =>
-        todo.id === targetId ? { ...todo, isDone: !todo.isDone } : todo
-      )
-    );
+    // setTodos(
+    //   todos.map((todo) =>
+    //     todo.id === targetId ? { ...todo, isDone: !todo.isDone } : todo
+    //   )
+    // );
+    dispatch({
+      type: "update",
+      targetId: targetId,
+    });
   };
 
   // 삭제 함수
   const onDelete = (targetId) => {
-    setTodos(todos.filter((todo) => todo.id !== targetId));
+    //setTodos(todos.filter((todo) => todo.id !== targetId));
+    dispatch({
+      type: "delete",
+      targetId: targetId,
+    });
   };
 
   return (
