@@ -1,5 +1,5 @@
 import "./App.css";
-import { useRef, useState } from "react";
+import { useReducer, useRef, useState } from "react";
 import Header from "./components/Header";
 import Editor from "./components/Editor";
 import List from "./components/List";
@@ -42,19 +42,40 @@ const mockData = [
   },
 ];
 
+function reducer(state, action) {
+  switch (action.type) {
+    case "create":
+      return [action.data, ...state];
+    default:
+      return state;
+  }
+}
+
 function App() {
-  const [todos, setTodos] = useState(mockData);
+  //const [todos, setTodos] = useState(mockData);
+
+  const [todos, dispatch] = useReducer(reducer, mockData);
 
   // todo 번호, 3번 부터 시작
   const idRef = useRef(3);
 
   const onCreate = (content) => {
-    const newToDo = {
-      id: idRef.current++,
-      isDone: false,
-      content: content,
-      date: new Date().getTime(),
-    };
+    dispatch({
+      type: "create",
+      data: {
+        id: idRef.current++,
+        isDone: false,
+        content: content,
+        date: new Date().getTime(),
+      },
+    });
+
+    // const newToDo = {
+    //   id: idRef.current++,
+    //   isDone: false,
+    //   content: content,
+    //   date: new Date().getTime(),
+    // };
 
     setTodos([newToDo, ...todos]);
   };
@@ -78,6 +99,10 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
+      <Editor onCreate={onCreate} />
+      <List todos={todos} onUpdate={onUpdate} onDelete={onDelete} />
+
       <ExamForUseReducer />
     </div>
   );
