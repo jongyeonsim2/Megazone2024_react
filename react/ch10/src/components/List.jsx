@@ -1,8 +1,11 @@
 import "./List.css";
 import TodoItem from "./TodoItem";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { TodoContext } from "../App";
 
-const List = ({ todos, onUpdate, onDelete }) => {
+const List = () => {
+  const { todos } = useContext(TodoContext);
+
   const [search, setSearch] = useState("");
 
   const onChangeSearch = (e) => {
@@ -54,14 +57,7 @@ const List = ({ todos, onUpdate, onDelete }) => {
            * prop 를 고유한 값으로 전달해주어야 함
            *
            */
-          return (
-            <TodoItem
-              key={todo.id}
-              {...todo}
-              onUpdate={onUpdate}
-              onDelete={onDelete}
-            />
-          );
+          return <TodoItem key={todo.id} {...todo} />;
         })}
       </div>
     </div>

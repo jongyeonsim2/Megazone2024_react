@@ -1,5 +1,5 @@
 import "./App.css";
-import { useReducer, useRef, useState } from "react";
+import { useReducer, useRef, createContext, useState } from "react";
 import Header from "./components/Header";
 import Editor from "./components/Editor";
 import List from "./components/List";
@@ -18,6 +18,21 @@ import ExamForUseReducer from "./components/ExamForUseReducer";
  *        그래서, 부모 컴포넌트 함수 내부에 구현해야 함
  *
  *        부모 컴포넌트 함수 외부에서 구현하려고 한다면...
+ *
+ * - createContext 활용
+ *   App - Header
+ *       - Editor
+ *       - List - TodoItem
+ *
+ *   문제점 : 삭제 기능의 경우 실제 사용하는 컴포넌트는 TodoItem 이지만,
+ *          App 생성한 후 List 거쳐서 전달되고 있음
+ *
+ *          따라서, 관계의 깊이기 깊어지면 질수록 유지보수가 힘들어짐
+ *          버그 발생 가능성이 높아짐
+ *
+ *          만약에, App 에서 TodoItem 으로 삭제함수를 direct 로
+ *          전달할 수 있으면 어떨까...?
+ *
  *
  */
 
@@ -56,6 +71,11 @@ function reducer(state, action) {
       return state;
   }
 }
+
+// App() 외부에 선언
+// 리렌더링이 될때마다, App() 호출됨으로
+// Context 가 생성됨을 고려함
+export const TodoContext = createContext();
 
 function App() {
   //const [todos, setTodos] = useState(mockData);
@@ -114,8 +134,17 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Editor onCreate={onCreate} />
-      <List todos={todos} onUpdate={onUpdate} onDelete={onDelete} />
+      <TodoContext.Provider
+        value={{
+          todos,
+          onCreate,
+          onUpdate,
+          onDelete,
+        }}
+      >
+        <Editor />
+        <List />
+      </TodoContext.Provider>
 
       <ExamForUseReducer />
     </div>
