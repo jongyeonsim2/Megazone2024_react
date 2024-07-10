@@ -1,6 +1,7 @@
 import "./App.css";
 import Viewer from "./components/Viewer";
 import Controller from "./components/Controller";
+import Even from "./components/Even";
 import { useState, useEffect, useRef } from "react";
 
 /***
@@ -106,7 +107,17 @@ function App() {
     console.log("update");
   });
 
-  //3.
+  //3. UnMount : 컴포넌트 소멸, 렌더링에서 제외
+  /***
+   * 화면에 렌더링되었다가 렌더링에서 제외가 되도록 하는
+   * 테스트용 컴포넌트가 필요
+   *
+   * count 상태 변수가 짝수일 때만 화면에 렌더링이 되는
+   * 테스트용 컴포넌트를 작성
+   *
+   * Even.jsx 컴포넌트를 작성 및 사용
+   *
+   */
 
   /***
    * useEffect 사용
@@ -157,6 +168,7 @@ function App() {
       <h1>Simple Counter</h1>
       <section>
         <Viewer count={count} />
+        {<Even />}
       </section>
       <section>
         <Controller onClickButton={onClickButton} />
