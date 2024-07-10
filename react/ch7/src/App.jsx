@@ -1,7 +1,7 @@
 import "./App.css";
 import Viewer from "./components/Viewer";
 import Controller from "./components/Controller";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 /***
  *  ch6 에서 만든 counter reacte app
@@ -61,6 +61,53 @@ function App() {
   // useEffect hook 초기화 관련
   const [input, setInput] = useState("");
 
+  // 마운트 여부를 관리하는 flag, 초기화를 false 로 설정
+  const isMount = useRef(false);
+
+  //1. Mount : 컴포넌트 생성
+  /***
+   * deps 를 빈 배열을 매개변수로 전달하면 됨
+   * useEffect(()=>{}, [])
+   *
+   * useEffect 는 deps 에 있는 값이 변경이 되어야먄 실행됨으로
+   * 결국 callback 함수는 컴포넌트가 처음 mount 될 때
+   * 이후에는 다시는 실행이 될 수 없음
+   * 즉, 변경을 체크를 의존관계배열이 비어 있기 때문임
+   *
+   * 버턴을 클릭해서 state(count) 변경시켜보더라도,
+   * callback() 함수의 mount 문자가 출력이 되지 않음
+   *
+   * 그래서, component lifecycle 의 mount 단계에서만
+   * 실행이 되는 것임
+   *
+   */
+  useEffect(() => {
+    console.log("mount");
+  }, []);
+
+  //2. Update : 리렌더링, 상태변수 변경
+  /***
+   * lifecycle 의 update 기준을 개발자가 별도로 정의해서 사용할 수 있음
+   * 버튼이 click 되었을 때만 lifecycle 의 update로 인정하겠다는 것
+   * 기준에 따라 동작이 되도록 구현을 해야 함
+   *
+   * useEffect() 가 mount 단계가 아닌 경우를 판단 할 수 있어야 함
+   *
+   * useEffect(()=>{})
+   *
+   * 두 번째 매개변수인 의존관계배열을 매개변수로 전달하지 않음
+   */
+  useEffect(() => {
+    // 조건문, mount 단계가 아님을 판단
+    if (!isMount.current) {
+      isMount.current = true;
+      return;
+    }
+    console.log("update");
+  });
+
+  //3.
+
   /***
    * useEffect 사용
    * 첫 번째 매개변수 : callback 함수, 두 번째 매개변수 : 배열, 옵션
@@ -86,6 +133,10 @@ function App() {
    *   결론은 안됨
    *   왜 안되는지를 이해해야만 함 => setCount() 가 비동기 함수임
    *   따라서, useEffect() hook 를 사용해야만 함
+   *
+   *   정리하면 React 에서 state(상태) 는 비동기로 동작하기
+   *   때문에 변경된 값에 따라서 부가적인 작업을 하려면
+   *   반드시 useEffect() hook 를 사용해야 함
    */
   useEffect(() => {
     console.log(`count : ${count}`);
@@ -93,9 +144,9 @@ function App() {
 
   // event handler
   const onClickButton = (value) => {
-    // 상태변경함수 호출은 되었으나, 완료가 되기전에
+    // 상태변경함수가 호출은 되었으나, 완료가 되기전에
     // console.log() 호출된 것임.
-    // => 순차처리가 아님=> 비동기 처리
+    // => 순차처리가 아님 => 비동기 처리
     setCount(count + value);
 
     //console.log(" event handler : " + count);
