@@ -11,6 +11,12 @@ import NotFound from "./pages/NotFound";
  * 1. 라이브러리 설치
  *    npm i react-router-dom
  *
+ *    main.jsx 에서 <BrowserRouter> 추가
+ *
+ *    이동할 컴포넌트 작성(Home, Diary, New, NotFound)
+ *
+ *    라우팅 테스트용 컴포넌트 : App.jsx
+ *
  * 2. Router 활용한 컴포넌트 이동
  *    기본 URL + "라우팅 정보"
  *    "http://localhost:5173" + "라우팅 정보"
@@ -19,6 +25,8 @@ import NotFound from "./pages/NotFound";
  *    - "/diary" : Diary 페이지로
  *
  * 3. Link 를 이용한 이동
+ *    Link, useNavigate 를 활용
+ *
  * 4. 동적 Routing
  */
 
